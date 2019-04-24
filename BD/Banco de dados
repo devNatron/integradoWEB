@@ -8,7 +8,7 @@ CREATE TABLE instituicao(
 );
 
 CREATE TABLE campus(
-    id_campus smallint,
+    id_campus int,
     nome_campus varchar(40) NOT NULL,
     cidade varchar(45) NOT NULL,
     sigla_instituicao varchar(7),
@@ -18,13 +18,13 @@ CREATE TABLE campus(
 );
 
 CREATE TABLE curso(
-	id_curso smallint,
+	id_curso int,
     nome_curso varchar(40) NOT NULL,
     grau varchar(12) NOT NULL CHECK (grau IN ('Bacharelado', 'Licenciatura', 'Mestrado', 'Doutorado', 'Tecnólogo')),
     turno varchar(10) NOT NULL CHECK (turno IN ('Matutino', 'Integral', 'Noturno', 'Vespertino')),
     duracao smallint NOT NULL CHECK (duracao > 0 AND duracao <= 12),
     ano_criacao smallint NOT NULL CHECK (ano_criacao <= DATE_PART('YEAR', CURRENT_DATE) AND ano_criacao > 1980),
-    id_campus smallint NOT NULL,
+    id_campus int NOT NULL,
 
     PRIMARY KEY(id_curso),
     FOREIGN KEY (id_campus) REFERENCES campus(id_campus) ON DELETE CASCADE ON UPDATE CASCADE
