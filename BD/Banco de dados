@@ -1,0 +1,31 @@
+CREATE TABLE instituicao(
+	sigla varchar(7),
+	nome_instituicao varchar(50) NOT NULL,
+	natureza_administrativa varchar(7) CHECK (nature-za_administrativa IN ('Pública', 'Privada')),
+	estado char(2) NOT NULL CHECK (estado IN ('AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO')),
+	
+	PRIMARY KEY(sigla)
+);
+
+CREATE TABLE campus(
+    id_campus smallint,
+    nome_campus varchar(40) NOT NULL,
+    cidade varchar(45) NOT NULL,
+    sigla_instituicao varchar(7),
+    
+    PRIMARY KEY(id_campus),
+    FOREIGN KEY(sigla_instituicao) REFERENCES institui-cao(sigla) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE curso(
+	id_curso smallint,
+    nome_curso varchar(40) NOT NULL,
+    grau varchar(12) NOT NULL CHECK (grau IN ('Bacharelado', 'Licenciatura', 'Mestrado', 'Doutorado', 'Tecnólogo')),
+    turno varchar(10) NOT NULL CHECK (turno IN ('Matutino', 'Integral', 'Noturno', 'Vespertino')),
+    duracao smallint NOT NULL CHECK (duracao > 0 AND duracao <= 12),
+    ano_criacao smallint NOT NULL CHECK (ano_criacao <= DA-TE_PART('YEAR', CURRENT_DATE) AND ano_criacao > 1980),
+    id_campus smallint NOT NULL,
+
+    PRIMARY KEY(id_curso),
+    FOREIGN KEY (id_campus) REFERENCES campus(id_campus) ON DELETE CASCADE ON UPDATE CASCADE
+);
