@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.app{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 15% 10% 1fr 15%;
+    grid-template-areas: 
+        "InfoBar Menu"
+        "InfoBar Filters"
+        "InfoBar Table"
+        "InfoBar Nav";
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.InfoBar {
+    grid-area: InfoBar;
+    background-color: red;
+}
+
+.Menu {
+    grid-area: Menu;
+    background-color: #F5F5F5;
+}
+
+.Filters {
+    grid-area: Filters;
+    background-color: blue;
+}
+
+.Nav {
+    grid-area: Nav;
+    background-color: pink;
+}
+
+.Table {
+    grid-area: Table;
+    background-color: green;
+}
