@@ -1,0 +1,36 @@
+.InfoBar {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/image/ufscar_entrada.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-right: solid 3px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.InfoBar h1 {
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 15%;
+}
+
+.TextBox {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 5px rgba(0, 0, 0, 0.4);
+    width: 85%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 20%;
+}
+
+.TextBox p {
+    color: white;
+    text-align: center;
+    line-height: 25px;
+}

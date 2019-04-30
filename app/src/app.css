@@ -7,19 +7,19 @@
     margin: 0;
     display: grid;
     grid-template-columns: 30% 1fr;
-    grid-template-rows: 15% 10% 1fr 15%;
+    grid-template-rows: 15% 1fr 15%;
     grid-template-areas: 
         "InfoBar Menu"
-        "InfoBar Filters"
         "InfoBar Table"
         "InfoBar Nav";
     height: 100vh;
     background-color: #F5F5F5;
+    grid-gap: 5px;
+
 }
 
 .InfoBar {
     grid-area: InfoBar;
-    background-color: red;
 }
 
 .Menu {
@@ -40,4 +40,12 @@
 .Table {
     grid-area: Table;
     background-color: green;
+}
+
+.app p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.app h1 {
+    font-family: 'Oswald', sans-serif;
 }
