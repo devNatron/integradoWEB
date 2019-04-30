@@ -1,5 +1,11 @@
 import React from 'react';
+import DarkButton from '../../Utils/DarkButton';
+import './styles.css';
 
-const Nav = <h1 className="Nav">Nav</h1>
-
-export default () => Nav
+export default () => (
+    <div className="Nav">
+        <DarkButton nome = "Início"/>
+        <DarkButton nome = "Consulta 1"/>
+        <DarkButton nome = "Consulta 2"/>
+    </div>
+);

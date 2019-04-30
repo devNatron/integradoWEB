@@ -24,7 +24,6 @@
 
 .Menu {
     grid-area: Menu;
-    background-color: #F5F5F5;
 }
 
 .Filters {
@@ -34,7 +33,6 @@
 
 .Nav {
     grid-area: Nav;
-    background-color: pink;
 }
 
 .Table {

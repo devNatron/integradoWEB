@@ -1,4 +1,11 @@
 import React from 'react';
+import DarkButton from '../../Utils/DarkButton';
+import './styles.css';
 
-
-export default ({children}) => <h1 className="Menu">Menu</h1>
+export default () => (
+    <div className="Menu">
+        <DarkButton nome = "Instituições"/>
+        <DarkButton nome = "Cursos"/>
+        <DarkButton nome = "Campi"/>
+    </div>
+);
