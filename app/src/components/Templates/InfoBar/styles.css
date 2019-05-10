@@ -21,7 +21,7 @@
 
 .TextBox {
     background-color: rgba(0, 0, 0, 0.5);
-    border: solid 5px rgba(0, 0, 0, 0.4);
+    border: solid 0px rgba(0, 0, 0, 0.4);
     width: 85%;
     padding: 10px;
     box-sizing: border-box;

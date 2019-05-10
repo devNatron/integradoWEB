@@ -5,7 +5,7 @@ import './styles.css';
 export default () => (
     <div className="Nav">
         <DarkButton nome = "Início"/>
-        <DarkButton nome = "Consulta 1"/>
-        <DarkButton nome = "Consulta 2"/>
+        <DarkButton nome = "Pesquisa por área"/>
+        <DarkButton nome = "Campi com mais cursos"/>
     </div>
 );
