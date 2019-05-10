@@ -13,7 +13,6 @@ export default props =>
   <HashRouter>
     <div className="app">
       <InfoBar />
-      <Menu />
       <Routes/>
       <Nav />
     </div>

@@ -7,23 +7,19 @@
     margin: 0;
     display: grid;
     grid-template-columns: 30% 1fr;
-    grid-template-rows: 15% 1fr 15%;
+    grid-template-rows: 1fr 15%;
     grid-template-areas: 
-        "InfoBar Menu"
-        "InfoBar Table"
+        "InfoBar Content"
         "InfoBar Nav";
     height: 100vh;
     background-color: #F5F5F5;
+    background-color: rgb(205,215,231);
     grid-gap: 5px;
 
 }
 
 .InfoBar {
     grid-area: InfoBar;
-}
-
-.Menu {
-    grid-area: Menu;
 }
 
 .Filters {
@@ -35,9 +31,8 @@
     grid-area: Nav;
 }
 
-.Table {
-    grid-area: Table;
-    background-color: green;
+main.Content {
+    grid-area: Content;
 }
 
 .app p {
