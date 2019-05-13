@@ -1,5 +1,7 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import { CSSTransition, TransitionGroup} from 'react-transition-group';
+
 import "./app.css"
 
 import Routes from './Routes'
@@ -9,11 +11,26 @@ import Nav from '../components/Templates/Nav'
 import InfoBar from '../components/Templates/InfoBar'
 import DarkButton from '../components/Utils/DarkButton'
 
-export default props => 
-  <HashRouter>
-    <div className="app">
-      <InfoBar />
-      <Routes/>
-      <Nav />
-    </div>
-  </HashRouter>
+class App extends React.Component {
+  render(){
+    return (
+        <div className="app">
+          <InfoBar />
+          <Route render={({location}) => (
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={400}
+                classNames="fade"
+                >
+                <Routes location={location}/>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
+          <Nav />
+        </div>
+    )
+  }
+}
+
+export default App;

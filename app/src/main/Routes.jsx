@@ -5,7 +5,7 @@ import Home from '../components/Home/'
 import Teste from '../components/Teste/'
 
 export default props => 
-    <Switch>
+    <Switch location={props.location}>
         <Route exact path='/' component={Home} />
         <Route path='/teste' component={Teste} />
         <Route path='/home' component={Home} />

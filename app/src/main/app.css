@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.page {
+    position: absolute;
+}
+
 .app{
     margin: 0;
     display: grid;
@@ -15,7 +19,7 @@
     background-color: #F5F5F5;
     background-color: rgb(205,215,231);
     grid-gap: 5px;
-
+    position: relative;
 }
 
 .InfoBar {
@@ -42,3 +46,54 @@ main.Content {
 .app h1 {
     font-family: 'Oswald', sans-serif;
 }
+
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+/* .fade-appear {
+    opacity: 0;
+}
+
+.fade-appear.fade-appear-active{
+    opacity: 1;
+    transition: opacity 300ms linear;
+}
+
+.fade-exit{
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms linear;
+}
+
+.fade-exit-done{
+    opacity: 0;
+}
+
+.fade-enter{
+    opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear;
+} */

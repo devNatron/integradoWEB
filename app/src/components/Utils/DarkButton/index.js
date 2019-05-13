@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import "./styles.css"
 
@@ -15,11 +15,11 @@ class DarkButton extends React.Component {
 
     render(){
         return (
-            <Link to={this.props.link}>
+            <NavLink to={this.props.link} activeClassName="active"> 
                 <button className="dark-button" onClick={this.handleClick} style={{backgroundColor: this.state.bgColor}}>
                     {this.props.nome}
                 </button>
-            </Link>
+            </NavLink>
         )
     }
 }
