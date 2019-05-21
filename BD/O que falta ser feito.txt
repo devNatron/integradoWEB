@@ -1,4 +1,2 @@
-- Toda a parte de indexação e otimização + novo relatório + apresentação
-- Arrumar instituições e cursos reais a serem inseridos no banco
-- Arrumar relatório antigo
-- Arrumar consultas
+- Toda a parte de indexaÃ§Ã£o e otimizaÃ§Ã£o + novo relatÃ³rio + apresentaÃ§Ã£o
+- Arrumar relatÃ³rio antigo
