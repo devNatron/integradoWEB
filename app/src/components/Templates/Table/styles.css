@@ -1,0 +1,11 @@
+.table{
+    width: 80%;
+    max-height: 80%;
+    font-family: 'Open Sans', sans-serif;
+    border: 4px solid black;
+}
+
+.tabulator-headers{
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}

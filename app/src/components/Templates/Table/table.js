@@ -1,9 +1,5 @@
-import React from 'react';
-
-import "./styles.css";
-import 'react-tabulator/lib/styles.css'; // required styles
-import "./tabulator.min.css"; // theme
-import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
+var Tabulator = require('tabulator-tables');
+/* STATUS TABLE */
 
 const summaryFormat = function(cell, formatterParams, onRendered){
     //cell - the cell component
@@ -30,22 +26,16 @@ let options = {
     paginationSize:5,
     data:tableData,
     layout:"fitColumns",
+    columns:[
+        {title:"slice", field:"slice", sorter:"string"},
+        {title:"uptime", field:"uptime", sorter:"number", align:"center", formatter:"plaintext"},
+        {title:"computer", field:"computer", align:"center", formatter: summaryFormat},
+        {title:"network", field:"network", align:"center", formatter: summaryFormat}
+    ],
 }
-const columns = [
-    {title:"slice", field:"slice", sorter:"string"},
-    {title:"uptime", field:"uptime", sorter:"number", align:"center", formatter:"plaintext"},
-    {title:"computer", field:"computer", align:"center", formatter: summaryFormat},
-    {title:"network", field:"network", align:"center", formatter: summaryFormat}
-]
 
-export default () => (
-    <main className="Content page">
-        <div className="intro-wrapper">
-            <p>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
-                mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></p>
-        </div>
-        <ReactTabulator columns={columns} data={tableData} options={options} className="table"/>
-        {/* <div className="table-wrapper" id="table">
-        </div> */}
-    </main >
-);
+const CreateTable = function(){
+    return new Tabulator("table", options);
+}
+
+export default CreateTable();

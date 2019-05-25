@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 
 import './styles.css'
 
@@ -28,7 +29,9 @@ export default () => (
                     <Input id="area2" name="area2" className="input-area2"></Input>
                 </div>
                 <div id="botoes">
-                    <Button id="pular" variant="contained" color="primary">Pular</Button>
+                    <NavLink to="/tabela" activeClassName="active">
+                        <Button id="pular" variant="contained" color="primary">Pular</Button>
+                    </NavLink>
                     <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
                 </div>
             </form>

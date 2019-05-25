@@ -5,18 +5,21 @@ import "./styles.css"
 
 
 class DarkButton extends React.Component {
-    state = {
-        bgColor: "#282828"
-    }
+    handleClick = (e) => {
+        const buttons = e.target.parentElement.parentElement.children;
+        for(let i = 0; i < buttons.length; i++) {
+            //here you set all buttons to default color
+            buttons[i].firstElementChild.classList.add('btn-default');
+            buttons[i].firstElementChild.classList.remove('btn-active');
+        }
 
-    handleClick = () => {
-        this.setState({bgColor: "#666"})
+        e.target.classList.add('btn-active');
     }
 
     render(){
         return (
             <NavLink to={this.props.link} activeClassName="active"> 
-                <button className="dark-button" onClick={this.handleClick} style={{backgroundColor: this.state.bgColor}}>
+                <button className="dark-button btn-default" onClick={this.handleClick}>
                     {this.props.nome}
                 </button>
             </NavLink>
