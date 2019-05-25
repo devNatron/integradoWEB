@@ -18,8 +18,8 @@ const summaryFormat = function(cell, formatterParams, onRendered){
 }
 
 var tableData = [
-    {slice:"slice 1", uptime: 30, computer: [4, 2, 8], network: [4, 2, 8]},
-    {slice:"slice 2", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
+    {slice:"slice 1", uptime: 30, computer: [4, 2, 8], network: [4, 2, 8], color: 'green', color2: 'blue'},
+    {slice:"slice 2", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8], color2: 'red'},
     {slice:"slice 3", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
     {slice:"slice 4", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
     {slice:"slice 5", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
@@ -31,21 +31,80 @@ let options = {
     data:tableData,
     layout:"fitColumns",
 }
+
+const colorOptions = {
+    [""]: "&nbsp;",
+    red: "red",
+    green: "green",
+    yellow: "yellow"
+  };
+
 const columns = [
     {title:"slice", field:"slice", sorter:"string"},
     {title:"uptime", field:"uptime", sorter:"number", align:"center", formatter:"plaintext"},
     {title:"computer", field:"computer", align:"center", formatter: summaryFormat},
-    {title:"network", field:"network", align:"center", formatter: summaryFormat}
+    {title:"network", field:"network", align:"center", formatter: summaryFormat},
+    {
+        title: "Favourite Color",
+        field: "color",
+        editor: "select",
+        editorParams: {
+          allowEmpty: true,
+          showListOnEmpty: true,
+          values: colorOptions
+        },
+        headerFilter: "select",
+        headerFilterParams: { values: colorOptions }
+      },
+      {
+        title: "Favourite Color",
+        field: "color2",
+        editor: "select",
+        editorParams: {
+          allowEmpty: true,
+          showListOnEmpty: true,
+          values: colorOptions
+        },
+        headerFilter: "select",
+        headerFilterParams: { values: colorOptions }
+      },
 ]
 
-export default () => (
+/* export default () => (
     <main className="Content page">
         <div className="intro-wrapper">
-            <p>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
-                mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></p>
+            <p>Tabela de relacões melhores universidades de São Paulo</p>
         </div>
         <ReactTabulator columns={columns} data={tableData} options={options} className="table"/>
-        {/* <div className="table-wrapper" id="table">
-        </div> */}
     </main >
-);
+); */
+
+class Table extends React.Component {
+    //ref.table.setFilter("uptime", ">", 10);
+    setFilter = () => {
+        setTimeout(() => {
+            console.log(this.ref.table)
+            this.ref.table.setFilter("color", "=", "green");
+        }, 0);
+    }
+    
+    render(){
+        return (
+            <main className="Content page">
+                <div className="intro-wrapper">
+                    <p>Tabela de relacões melhores universidades de São Paulo</p>
+                </div>
+                <ReactTabulator 
+                    ref={ref => (this.ref = ref)}
+                    columns={columns} 
+                    data={tableData}
+                    options={options}
+                    className="table"
+                    tableBuilt = {this.setFilter}
+                />
+            </main >
+        )
+    }
+}
+
+export default Table
