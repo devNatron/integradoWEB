@@ -29,7 +29,7 @@ let options = {
     pagination:"local",
     paginationSize:5,
     data:tableData,
-    layout:"fitData",
+    layout:"fitColumns",
 }
 
 const colorOptions = {

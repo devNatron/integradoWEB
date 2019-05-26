@@ -8,7 +8,7 @@ export default () => (
         <h1>Bem vindo ao UniBrasil!</h1>
         <div className = "TextBox">
             <p>
-                O UniBrasil é o app preferido para aqueles que estão na dúvida de qual curso escolher! 
+                O UniBrasil é uma aplicação perfeita para aqueles que estão na dúvida de qual curso escolher! 
                 Descubra os cursos de ensino superior que mais combinam com você. 
             </p>
             <p>
