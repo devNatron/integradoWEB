@@ -18,18 +18,18 @@ const summaryFormat = function(cell, formatterParams, onRendered){
 }
 
 var tableData = [
-    {slice:"slice 1", uptime: 30, computer: [4, 2, 8], network: [4, 2, 8], color: 'green', color2: 'blue'},
-    {slice:"slice 2", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8], color2: 'red'},
-    {slice:"slice 3", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
-    {slice:"slice 4", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
-    {slice:"slice 5", uptime: 1, computer: [4, 2, 8], network: [4, 2, 8]},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
 ]
 
 let options = {
     pagination:"local",
     paginationSize:5,
     data:tableData,
-    layout:"fitColumns",
+    layout:"fitData",
 }
 
 const colorOptions = {
@@ -40,11 +40,16 @@ const colorOptions = {
   };
 
 const columns = [
-    {title:"slice", field:"slice", sorter:"string"},
-    {title:"uptime", field:"uptime", sorter:"number", align:"center", formatter:"plaintext"},
-    {title:"computer", field:"computer", align:"center", formatter: summaryFormat},
-    {title:"network", field:"network", align:"center", formatter: summaryFormat},
-    {
+    {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'campus', field:"campus", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'estado', field:"estado", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'cidade', field:"cidade", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'curso', field:"curso", sorter:"string", align:"center", formatter:"plaintext", widthGrow:3},
+    {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'duracao', field:"duracao", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'enade', field:"enade", sorter:"number", formatter:"number"},
+    /* {
         title: "Favourite Color",
         field: "color",
         editor: "select",
@@ -67,7 +72,7 @@ const columns = [
         },
         headerFilter: "select",
         headerFilterParams: { values: colorOptions }
-      },
+      }, */
 ]
 
 /* export default () => (
@@ -84,7 +89,7 @@ class Table extends React.Component {
     setFilter = () => {
         setTimeout(() => {
             console.log(this.ref.table)
-            this.ref.table.setFilter("color", "=", "green");
+            //this.ref.table.setFilter("color", "=", "green");
         }, 0);
     }
     
