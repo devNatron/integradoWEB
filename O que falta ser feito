@@ -1,0 +1,6 @@
+- Falta implementar back-end URGENTEMENTE (servlet, mvc, e integração com banco)
+- Terminar front-end (últimos detalhes)
+- Consertar consultas de BD (indexação e otimização)
+- Implementar demais recursos para BD (segurança de acesso, programação interna...)
+- Interligar tudo
+- Testar
