@@ -29,7 +29,7 @@ let options = {
     pagination:"local",
     paginationSize:5,
     data:tableData,
-    layout:"fitColumns",
+    layout:"fitDataFill",
 }
 
 const colorOptions = {
@@ -44,10 +44,10 @@ const columns = [
     {title:'campus', field:"campus", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'estado', field:"estado", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'cidade', field:"cidade", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'curso', field:"curso", sorter:"string", align:"center", formatter:"plaintext", widthGrow:3},
+    {title:'curso', field:"curso", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'duracao', field:"duracao", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'duracao (semestre(s)', field:"duracao", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'enade', field:"enade", sorter:"number", formatter:"number"},
     /* {
         title: "Favourite Color",
@@ -86,6 +86,10 @@ const columns = [
 
 class Table extends React.Component {
     //ref.table.setFilter("uptime", ">", 10);
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     setFilter = () => {
         setTimeout(() => {
             console.log(this.ref.table)
