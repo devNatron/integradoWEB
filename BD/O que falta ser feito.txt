@@ -1,2 +1,2 @@
-- Toda a parte de indexação e otimização + novo relatório + apresentação
-- Arrumar relatório antigo
+- Arrumar indexação e otimização
+- Implementar demais recursos para entrega final
