@@ -5,24 +5,12 @@ import 'react-tabulator/lib/styles.css'; // required styles
 import "./tabulator.min.css"; // theme
 import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
 
-const summaryFormat = function(cell, formatterParams, onRendered){
-    //cell - the cell component
-    //formatterParams - parameters set for the column
-    //onRendered - function to call when the formatter has been rendered
-    const values = cell.getValue();
-    const checkCircle = "<i class='fa fa-check-circle' style='color: green;'></i>"
-    const exclamantionCircle = "<i class='fa fa-exclamation-circle' style='color: orange;'></i>"
-    const timesCircle = "<i class='fa fa-times-circle' style='color: red;'></i>"
-
-    return `${checkCircle + values[0] + timesCircle + values[1] + exclamantionCircle + values[2]}`
-}
-
 var tableData = [
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
 ]
 
 let options = {
@@ -48,7 +36,7 @@ const columns = [
     {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'duracao (semestre(s)', field:"duracao", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'enade', field:"enade", sorter:"number", formatter:"number"},
+    {title:'enade', field:"enade", sorter:"number", formatter:"star"},
     /* {
         title: "Favourite Color",
         field: "color",
@@ -75,24 +63,18 @@ const columns = [
       }, */
 ]
 
-/* export default () => (
-    <main className="Content page">
-        <div className="intro-wrapper">
-            <p>Tabela de relacões melhores universidades de São Paulo</p>
-        </div>
-        <ReactTabulator columns={columns} data={tableData} options={options} className="table"/>
-    </main >
-); */
-
 class Table extends React.Component {
     //ref.table.setFilter("uptime", ">", 10);
     componentDidMount() {
-        console.log(this.props)
+        //console.log(this.props.name)
+        /* fetch('https://api.mydomain.com')
+        .then(response => response.json())
+        .then(data => this.setState({ data })); */
     }
 
     setFilter = () => {
         setTimeout(() => {
-            console.log(this.ref.table)
+            //console.log(this.ref.table)
             //this.ref.table.setFilter("color", "=", "green");
         }, 0);
     }
@@ -104,7 +86,7 @@ class Table extends React.Component {
                     <p>Tabela de relacões melhores universidades de São Paulo</p>
                 </div>
                 <ReactTabulator 
-                    ref={ref => (this.ref = ref)}
+                    ref={ref => (this.ref = ref)} /* atribui a referencia para table a this.ref */
                     columns={columns} 
                     data={tableData}
                     options={options}
