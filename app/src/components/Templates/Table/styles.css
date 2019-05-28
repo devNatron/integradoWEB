@@ -1,3 +1,11 @@
+.tabela{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .table{
     width: auto;
     max-width: 90%;
@@ -9,4 +17,8 @@
 .tabulator-headers{
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
+}
+
+.intro-wrapper{
+    margin-top: 30px;
 }

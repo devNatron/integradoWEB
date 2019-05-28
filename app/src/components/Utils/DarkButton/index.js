@@ -19,7 +19,7 @@ class DarkButton extends React.Component {
     render(){
         return (
             <NavLink to={this.props.link} activeClassName="active"> 
-                <button className="dark-button btn-default" onClick={this.handleClick}>
+                <button className={this.props.class} onClick={this.handleClick}>
                     {this.props.nome}
                 </button>
             </NavLink>

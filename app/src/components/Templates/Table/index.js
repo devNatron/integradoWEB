@@ -27,7 +27,7 @@ var tableData = [
 
 let options = {
     pagination:"local",
-    paginationSize:5,
+    paginationSize:10,
     data:tableData,
     layout:"fitDataFill",
 }
@@ -99,7 +99,7 @@ class Table extends React.Component {
     
     render(){
         return (
-            <main className="Content page">
+            <main className="Content page tabela">
                 <div className="intro-wrapper">
                     <p>Tabela de relacões melhores universidades de São Paulo</p>
                 </div>

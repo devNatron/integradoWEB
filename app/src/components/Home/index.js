@@ -20,7 +20,7 @@ class Home extends React.Component {
 
     render(){
         return (
-            <main className="Content page">
+            <main className="Content page home">
                 <div className="intro-wrapper">
                     <p>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
                         mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></p>
