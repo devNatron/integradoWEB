@@ -2,16 +2,21 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 import './styles.css'
+import lista_estados from '../../assets/configs/lista_estados'
 
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
-
 class Home extends React.Component {
     state = {
         area: "",
-        area2: "",
+        curso: "",
+        estado: "",
+        lista_siglas: []
+    }
+    componentDidMount() {
+        this.setState({lista_siglas: lista_estados})
     }
 
     handleChange(event) {
@@ -29,17 +34,20 @@ class Home extends React.Component {
                     <form>
                         <div className="filters-wrapper">
                             <div>
-                                <label>Area desejada: </label>
-                                <Input id="area" name="area" className="input-area" value={this.state.area} 
+                                <label>Área desejada: </label>
+                                <Input id="input-area" name="area" value={this.state.area} 
                                 onChange={this.handleChange.bind(this)}/>
                             </div>
                             <div>
                                 <label>Estado de preferência: </label>
-                                <NativeSelect id="estado" name="area" className="input-area"></NativeSelect>
+                                <NativeSelect id="input-estado" name="estado" value={this.state.estado} 
+                                onChange={this.handleChange.bind(this)}>
+                                    {this.state.lista_siglas}
+                                </NativeSelect>
                             </div>
                             <div>
-                                <label>Area desejada: </label>
-                                <Input id="area2" name="area2" className="input-area2" value={this.state.area2} 
+                                <label>Curso: </label>
+                                <Input id="input-curso" name="curso" value={this.state.curso} 
                                 onChange={this.handleChange.bind(this)}/>
                             </div>
                         </div>
