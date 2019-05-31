@@ -7,11 +7,14 @@ import lista_estados from '../../assets/configs/lista_estados'
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';
 import NativeSelect from '@material-ui/core/NativeSelect';
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons' */
 
 class Home extends React.Component {
     state = {
         area: "",
         curso: "",
+        grau:"",
         estado: "",
         lista_siglas: []
     }
@@ -26,17 +29,34 @@ class Home extends React.Component {
     render(){
         return (
             <main className="Content page home">
-                <div className="intro-wrapper">
-                    <p>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
-                        mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></p>
-                </div>
+                <h1>UniBrasil</h1>
+                <h2>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
+                    mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></h2>
                 <div className="form-wrapper">
                     <form>
                         <div className="filters-wrapper">
+                            {/* <FontAwesomeIcon icon={faCoffee}/> */}
                             <div>
                                 <label>Área desejada: </label>
                                 <Input id="input-area" name="area" value={this.state.area} 
                                 onChange={this.handleChange.bind(this)}/>
+                            </div>
+                            <div>
+                                <label>Curso: </label>
+                                <Input id="input-curso" name="curso" value={this.state.curso} 
+                                onChange={this.handleChange.bind(this)}/>
+                            </div>
+                            <div>
+                                <label>Grau: </label>
+                                <NativeSelect id="input-grau" name="grau" value={this.state.grau} 
+                                onChange={this.handleChange.bind(this)}>
+                                    <option value="">Indiferente</option>,
+                                    <option value="AC">Licenciatura</option>,
+                                    <option value="AL">Bacharelado</option>,
+                                    <option value="AP">Tecnólogo</option>,
+                                    <option value="AM">Mestrado</option>,
+                                    <option value="AM">Doutorado</option>
+                                </NativeSelect>
                             </div>
                             <div>
                                 <label>Estado de preferência: </label>
@@ -44,11 +64,6 @@ class Home extends React.Component {
                                 onChange={this.handleChange.bind(this)}>
                                     {this.state.lista_siglas}
                                 </NativeSelect>
-                            </div>
-                            <div>
-                                <label>Curso: </label>
-                                <Input id="input-curso" name="curso" value={this.state.curso} 
-                                onChange={this.handleChange.bind(this)}/>
                             </div>
                         </div>
                         <div id="botoes">

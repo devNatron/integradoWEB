@@ -92,6 +92,7 @@ class Table extends React.Component {
                     options={options}
                     className="table"
                     tableBuilt = {this.setFilter}
+                    rowBorderColor="#000"
                 />
             </main >
         )

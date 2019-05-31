@@ -5,7 +5,6 @@ import './styles.css';
 
 export default () => (
     <div className="InfoBar">
-        <h1>Bem vindo ao UniBrasil!</h1>
         <div className = "TextBox">
             <p>
                 O UniBrasil é uma aplicação perfeita para aqueles que estão na dúvida de qual curso escolher! 
