@@ -1,0 +1,6 @@
+CREATE EXTENSION pg_trgm;
+CREATE UNIQUE INDEX natureza_insti ON instituicao (sigla, natureza_administrativa);
+CREATE INDEX gin_nome_curso ON curso USING gin(sigla gin_trgm_ops, campus gin_trgm_ops, nome_curso gin_trgm_ops);
+CREATE INDEX fk_curso ON curso(sigla, campus);
+CREATE INDEX fk_campus ON campus(sigla);
+CREATE INDEX ano ON curso (sigla, campus, ano_criacao);
