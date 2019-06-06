@@ -7,8 +7,8 @@ import lista_estados from '../../assets/configs/lista_estados'
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';
 import NativeSelect from '@material-ui/core/NativeSelect';
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons' */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 class Home extends React.Component {
     state = {
@@ -29,7 +29,7 @@ class Home extends React.Component {
     render(){
         return (
             <main className="Content page home">
-                <h1>UniBrasil</h1>
+                <h1>UniBrasil <FontAwesomeIcon icon={faGraduationCap} /></h1>
                 <h2>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
                     mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></h2>
                 <div className="form-wrapper">
