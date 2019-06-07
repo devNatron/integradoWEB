@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 import './styles.css'
-import lista_estados from '../../assets/configs/lista_estados'
+import lista_estados from '../../../assets/configs/lista_estados'
 
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';

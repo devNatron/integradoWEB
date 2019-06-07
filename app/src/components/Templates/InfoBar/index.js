@@ -8,12 +8,9 @@ export default () => (
         <div className = "TextBox">
             <p>
                 O UniBrasil é uma aplicação perfeita para aqueles que estão na dúvida de qual curso escolher! 
-            </p>
-            <p>
                 Você pode ver os campi que mais ofertaram cursos recentemente ou escolher uma 
                 área de interesse para ver se um dos cursos dela chama sua atenção. 
-            </p>
-            <p>
+            <br/>
                 Experimente!
             </p> 
             {/* Inicio: */}

@@ -5,6 +5,8 @@ import 'react-tabulator/lib/styles.css'; // required styles
 import "./tabulator.min.css"; // theme
 import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
 
+import Modal from 'react-modal';
+
 var tableData = [
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
@@ -63,6 +65,17 @@ const columns = [
       }, */
 ]
 
+/* const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  }; */
+
 class Table extends React.Component {
     //ref.table.setFilter("uptime", ">", 10);
     componentDidMount() {
@@ -77,6 +90,31 @@ class Table extends React.Component {
             //console.log(this.ref.table)
             //this.ref.table.setFilter("color", "=", "green");
         }, 0);
+    }
+
+    rowClick = (e) => {
+        console.log(e)
+    }
+
+    state = {
+        modalIsOpen: false
+    };
+  
+    openModal = this.openModal.bind(this);
+    afterOpenModal = this.afterOpenModal.bind(this);
+    closeModal = this.closeModal.bind(this);
+
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+
+    afterOpenModal() {
+    // references are now sync'd and can be accessed.
+        this.subtitle.style.color = '#f00';
+    }
+
+    closeModal() {
+        this.setState({modalIsOpen: false});
     }
     
     render(){
@@ -93,7 +131,41 @@ class Table extends React.Component {
                     className="table"
                     tableBuilt = {this.setFilter}
                     rowBorderColor="#000"
+                    rowClick={this.rowClick}
                 />
+                {/* <Modal
+                open={true}
+                onClose={handleClose}
+                >
+                    <div className="modal">
+
+                    </div>
+                </Modal> */}
+
+            <div>
+                <button onClick={this.openModal}>Open Modal</button>
+                <Modal
+                    isOpen={this.state.modalIsOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    onRequestClose={this.closeModal}
+                    //style={customStyles}
+                    contentLabel="Example Modal"
+                    className="modal"
+                >
+
+                <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+                <button onClick={this.closeModal}>close</button>
+                <div>I am a modal</div>
+                <form>
+                    <input />
+                    <button>tab navigation</button>
+                    <button>stays</button>
+                    <button>inside</button>
+                    <button>the modal</button>
+                </form>
+                </Modal>
+            </div>
+
             </main >
         )
     }
