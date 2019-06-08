@@ -4,10 +4,19 @@ import "./styles.css";
 import 'react-tabulator/lib/styles.css'; // required styles
 import "./tabulator.min.css"; // theme
 import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faUniversity } from '@fortawesome/free-solid-svg-icons'
 
 import Modal from 'react-modal';
 
 var tableData = [
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'RJ', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
+    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
     {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
@@ -22,12 +31,12 @@ let options = {
     layout:"fitDataFill",
 }
 
-const colorOptions = {
+/* const colorOptions = {
     [""]: "&nbsp;",
     red: "red",
     green: "green",
     yellow: "yellow"
-  };
+  }; */
 
 const columns = [
     {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
@@ -94,10 +103,12 @@ class Table extends React.Component {
 
     rowClick = (e) => {
         console.log(e)
+        this.setState({modalIsOpen: true});
     }
 
     state = {
         modalIsOpen: false
+        
     };
   
     openModal = this.openModal.bind(this);
@@ -110,7 +121,7 @@ class Table extends React.Component {
 
     afterOpenModal() {
     // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#f00';
+        this.subtitle.innerHTML = this.subtitle.innerHTML.concat("UFSCAR")
     }
 
     closeModal() {
@@ -119,8 +130,9 @@ class Table extends React.Component {
     
     render(){
         return (
-            <main className="Content page tabela">
+            <main className="Content page-animation page-tabela">
                 <div className="intro-wrapper">
+                    <FontAwesomeIcon icon={faUniversity} className="icon-university"/>
                     <p>Tabela de relacões melhores universidades de São Paulo</p>
                 </div>
                 <ReactTabulator 
@@ -133,36 +145,26 @@ class Table extends React.Component {
                     rowBorderColor="#000"
                     rowClick={this.rowClick}
                 />
-                {/* <Modal
-                open={true}
-                onClose={handleClose}
-                >
-                    <div className="modal">
-
-                    </div>
-                </Modal> */}
-
             <div>
-                <button onClick={this.openModal}>Open Modal</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
-                    //style={customStyles}
-                    contentLabel="Example Modal"
+                    ariaHideApp={false}
                     className="modal"
+                    style={{
+                        overlay: {
+                          position: 'fixed',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          backgroundColor: 'rgba(225, 231, 241, 0.75)'
+                        }
+                    }}
                 >
-
-                <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                <button onClick={this.closeModal}>close</button>
-                <div>I am a modal</div>
-                <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
-                </form>
+                    <FontAwesomeIcon icon={faTimes} className="icon-close" onClick={this.closeModal}/>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>Informações adicionais - </h2>
                 </Modal>
             </div>
 

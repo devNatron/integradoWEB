@@ -28,7 +28,7 @@ class Home extends React.Component {
 
     render(){
         return (
-            <main className="Content page home">
+            <main className="Content page-animation home">
                 <h1>UniBrasil <FontAwesomeIcon icon={faGraduationCap} /></h1>
                 <h2>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
                     mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></h2>
