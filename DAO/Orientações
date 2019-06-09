@@ -1,4 +1,4 @@
-Aqui está o(s) arquivo(s) DAO
+Aqui está o(s) arquivo(s) DAO (usei o pacote chamado persistence)
 
 Eles é quem fazem o contato e abertura de conexão com o banco, além de executar as consultas e retornar as tuplas para a View
 
