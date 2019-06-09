@@ -1,0 +1,7 @@
+Aqui está o(s) arquivo(s) DAO
+
+Eles é quem fazem o contato e abertura de conexão com o banco, além de executar as consultas e retornar as tuplas para a View
+
+Ele usa o Model para criar objetos que irão abrigar as tuplas da tabela temporariamente
+
+É possível que exista mais de um DAO. Estou trabalhando, neste momento, com um só pra ver se dá certo
