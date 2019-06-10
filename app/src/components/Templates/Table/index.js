@@ -88,10 +88,17 @@ const columns = [
 class Table extends React.Component {
     //ref.table.setFilter("uptime", ">", 10);
     componentDidMount() {
-        //console.log(this.props.name)
-        /* fetch('https://api.mydomain.com')
-        .then(response => response.json())
-        .then(data => this.setState({ data })); */
+        let url = this.props.location.pathname;
+        if(url === "/tabela" && this.props.location.data){
+            /* fetch('/tabelaFiltrada')
+            .then(response => response.json())
+            .then(data => this.setState({ data })); */
+            console.log("tem")
+        }
+        else{
+            console.log("Ntem")
+        }
+        console.log(this.props)
     }
 
     setFilter = () => {
@@ -107,8 +114,9 @@ class Table extends React.Component {
     }
 
     state = {
-        modalIsOpen: false
-        
+        modalIsOpen: false,
+        req: {
+        }
     };
   
     openModal = this.openModal.bind(this);

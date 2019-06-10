@@ -4,21 +4,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
-/* .intro-wrapper{
-    margin-top: 30px;
-} */
-
-.home h1{
-    margin: 20px 0px;
+.home .intro-wrapper h1{
+    margin-bottom: 20px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     font-size: 2.5em;
 }
 
-.home h2{
+.home .intro-wrapper h2{
     max-width: 870x;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
@@ -39,7 +36,7 @@
 
     padding: 30px;
     position: relative;
-    margin: 30px 0;
+    /* margin: 30px 0; */
 }
 
 .form-wrapper form {

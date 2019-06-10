@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import './styles.css'
 import lista_estados from '../../../assets/configs/lista_estados'
@@ -16,10 +16,7 @@ class Home extends React.Component {
         curso: "",
         grau:"",
         estado: "",
-        lista_siglas: []
-    }
-    componentDidMount() {
-        this.setState({lista_siglas: lista_estados})
+        lista_siglas: lista_estados
     }
 
     handleChange(event) {
@@ -29,9 +26,11 @@ class Home extends React.Component {
     render(){
         return (
             <main className="Content page-animation home">
-                <h1>UniBrasil <FontAwesomeIcon icon={faGraduationCap} /></h1>
-                <h2>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
-                    mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></h2>
+                <div className="intro-wrapper">
+                    <h1>UniBrasil <FontAwesomeIcon icon={faGraduationCap} /></h1>
+                    <h2>Você pode preencher os campos abaixo para filtrarmos as faculdades de acordo com o seu perfil<br/> 
+                        mas se preferir, pode pular as perguntas e ver a lista completa :) <br/></h2>
+                </div>
                 <div className="form-wrapper">
                     <form>
                         <div className="filters-wrapper">
@@ -51,11 +50,11 @@ class Home extends React.Component {
                                 <NativeSelect id="input-grau" name="grau" value={this.state.grau} 
                                 onChange={this.handleChange.bind(this)}>
                                     <option value="">Indiferente</option>,
-                                    <option value="AC">Licenciatura</option>,
-                                    <option value="AL">Bacharelado</option>,
-                                    <option value="AP">Tecnólogo</option>,
-                                    <option value="AM">Mestrado</option>,
-                                    <option value="AM">Doutorado</option>
+                                    <option value="licenciatura">Licenciatura</option>,
+                                    <option value="bacharelado">Bacharelado</option>,
+                                    <option value="tecnologo">Tecnólogo</option>,
+                                    <option value="mestrado">Mestrado</option>,
+                                    <option value="doutorado">Doutorado</option>
                                 </NativeSelect>
                             </div>
                             <div>
@@ -67,12 +66,12 @@ class Home extends React.Component {
                             </div>
                         </div>
                         <div id="botoes">
-                            <Link to={{ pathname:'/tabela', data:{filter: false}}} activeClassName="active">
+                            <NavLink to={{ pathname:'/tabela', data:{filter: false}}}>
                                 <Button id="pular" variant="contained" color="primary">Pular</Button>
-                            </Link>
-                            <Link to={{ pathname:'/tabela', data:{filter: true, area: this.state.area}}} activeClassName="active">
+                            </NavLink>
+                            <NavLink to={{ pathname:'/tabela', data:{filter: true, area: this.state.area}}}>
                                 <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
-                            </Link>
+                            </NavLink>
                         </div>
                     </form>
                 </div>

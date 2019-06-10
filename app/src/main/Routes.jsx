@@ -11,8 +11,8 @@ export default props =>
         <Route path='/home' component={Home} />
         <Route path='/tabela/pesquisa-por-area' render={(props) => <Table {...props} teste='abacate'/>} />
         <Route path='/tabela/ranking-campi-cursos' render={(props) => <Table {...props} teste="batata"/>} />
-        <Route path='*' component={Home} />
-        {/* <Redirect from='*' to='/home' /> */}
+        <Redirect from='*' to='/home' />
+        {/* <Route path='*' component={Home} /> */}
     </Switch>
     
 /* <Route path='/tabela' render={(props) => <Table {...props}/>} /> */
