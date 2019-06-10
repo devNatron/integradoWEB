@@ -7,6 +7,10 @@ import br.com.web.model.campus;
 import br.com.web.model.instituicao;
 import br.com.web.model.curso;
 import br.com.web.persistence.ConexaoDAO;
+import java.sql.SQLException;
+import java.util.List;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
  
 
 @Controller
@@ -17,14 +21,25 @@ public class BuscaController{
     private campus campusModel;
     private curso cursoModel;
     
-    @RequestMapping("/")//ver o url na aplicação
-    public String loginForm(){
+
+    @RequestMapping("/a")//ver o url na aplicação
+    public String ranqueiaCampus(){
+        
+      
         return "temp";
     }
     
+    @RequestMapping(value= "/as", method=RequestMethod.GET, produces="application/json")
+    public @ResponseBody List teste() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+        connectionDAO = new ConexaoDAO();
+        return connectionDAO.teste();
+    }
+    
     @RequestMapping("")
-    public String buscaCurso(){
-        return "a";
+    public String buscaCursoNaturezaAdm(){
+        
+        
+        return "temp";
     }
 
 }
