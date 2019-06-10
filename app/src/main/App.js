@@ -10,14 +10,14 @@ import InfoBar from '../components/Templates/InfoBar'
 
 class App extends React.Component {
   state = {
-    Infobar: "inicio"
+    // Infobar: "/home"
+    Infobar: this.props.location.pathname
+    // image: "/ufscar"
   } 
 
   changeInfobarData = function(texto) {
-    // texto = "teste"
-    // console.log("rodou change...")
-    console.log("app.js: " + texto)
-    this.state.Infobar = texto
+    // console.log("app.js: " + texto)
+    this.setState({Infobar: texto})
   }
 
   render(){

@@ -6,12 +6,13 @@ import Table from '../components/Templates/Table'
 
 export default props => 
     <Switch location={props.location}>
-        <Route exact path='/' component={Home} />
+        {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/tabela' component={Table} />
         <Route path='/home' component={Home} />
         <Route path='/tabela/pesquisa-por-area' render={(props) => <Table {...props} teste='abacate'/>} />
         <Route path='/tabela/ranking-campi-cursos' render={(props) => <Table {...props} teste="batata"/>} />
-        <Redirect from='*' to='/' />
+        <Route path='*' component={Home} />
+        {/* <Redirect from='*' to='/home' /> */}
     </Switch>
     
 /* <Route path='/tabela' render={(props) => <Table {...props}/>} /> */
