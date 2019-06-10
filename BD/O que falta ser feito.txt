@@ -1,2 +1,0 @@
-- Arrumar indexação e otimização
-- Implementar demais recursos para entrega final
