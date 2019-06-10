@@ -12,7 +12,7 @@ class DarkButton extends React.Component {
             buttons[i].firstElementChild.classList.add('btn-default');
             buttons[i].firstElementChild.classList.remove('btn-active');
         }
-
+        // console.log(this)
         e.target.classList.add('btn-active');
     }
 

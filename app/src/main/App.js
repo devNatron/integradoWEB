@@ -9,10 +9,21 @@ import Nav from '../components/Templates/Nav'
 import InfoBar from '../components/Templates/InfoBar'
 
 class App extends React.Component {
+  state = {
+    Infobar: "inicio"
+  } 
+
+  changeInfobarData = function(texto) {
+    // texto = "teste"
+    // console.log("rodou change...")
+    console.log("app.js: " + texto)
+    this.state.Infobar = texto
+  }
+
   render(){
     return (
         <div className="app">
-          <InfoBar />
+          <InfoBar stateNav={this.state.Infobar}/>
           <Route render={({location}) => (
             <TransitionGroup>
               <CSSTransition
@@ -24,7 +35,7 @@ class App extends React.Component {
               </CSSTransition>
             </TransitionGroup>
           )} />
-          <Nav />
+          <Nav sendData={this.changeInfobarData.bind(this)} />
         </div>
     )
   }

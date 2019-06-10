@@ -90,3 +90,18 @@ option {
     display: inline-block;
     line-height: 10px;
 }
+
+#input-grau{
+    max-width: 100px;
+    display: inline-block;
+}
+
+#input-estado{
+    max-width: 200px;
+    display: inline-block;
+}
+
+#input-curso{
+    max-width: 350px;
+    display: inline-block;
+}
