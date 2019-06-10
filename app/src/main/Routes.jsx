@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 
-import Home from '../components/Home/'
+import Home from '../components/Templates/Home/'
 import Table from '../components/Templates/Table'
 
 export default props => 

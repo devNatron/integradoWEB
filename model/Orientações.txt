@@ -1,0 +1,7 @@
+Aqui estão as classes do pacote Model do MVC
+Elas dizem respeito aos dados e a transformação deles
+
+Ou seja, são as classes pra manipular os dados das tabelas em Java, possibilitando que a gente pegue os dados do banco e coloque
+nos objetos dessas classes, pra poder montar na View e enviar pro cliente
+
+Eles também são usados nos DAO pra acessar o banco e filtrar os campos de seleção
