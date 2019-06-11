@@ -27,6 +27,6 @@ public class campusController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/campus", produces="application/json;charset=UTF-8")
     public List<campus> listaCampus(){
-            return campusRepo.findAll();
+            return campusRepo.buscar();
     }
 }
