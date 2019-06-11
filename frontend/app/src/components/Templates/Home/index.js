@@ -12,7 +12,7 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 class Home extends React.Component {
     state = {
-        area: "",
+        natureza: "",
         curso: "",
         grau:"",
         estado: "",
@@ -36,9 +36,13 @@ class Home extends React.Component {
                         <div className="filters-wrapper">
                             {/* <FontAwesomeIcon icon={faCoffee}/> */}
                             <div>
-                                <label>Área desejada: </label>
-                                <Input id="input-area" name="area" value={this.state.area} 
-                                onChange={this.handleChange.bind(this)}/>
+                                <label>Natureza administrativa: </label>
+                                <NativeSelect id="input-natureza" name="natureza" value={this.state.natureza} 
+                                onChange={this.handleChange.bind(this)}>
+                                    <option value="">Indiferente</option>,
+                                    <option value="publica">Pública</option>,
+                                    <option value="privada">Privada</option>
+                                </NativeSelect>
                             </div>
                             <div>
                                 <label>Curso: </label>

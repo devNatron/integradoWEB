@@ -93,6 +93,11 @@ option {
     display: inline-block;
 }
 
+.home #input-natureza{
+    max-width: 100px;
+    display: inline-block;
+}
+
 .home #input-estado{
     max-width: 200px;
     display: inline-block;

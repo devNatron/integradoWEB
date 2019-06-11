@@ -12,23 +12,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import Modal from 'react-modal';
 
-var tableData = [
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'RJ', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
-]
-
 let options = {
     pagination:"local",
     paginationSize:10,
-    data:tableData,
     layout:"fitDataFill",
 }
 
@@ -39,16 +25,6 @@ let options = {
     yellow: "yellow"
   }; */
 
-const columns = [
-    {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'campus', field:"campus", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'estado', field:"estado", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'cidade', field:"cidade", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'curso', field:"curso", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'duracao (semestre(s)', field:"duracao", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'enade', field:"enade", sorter:"number", formatter:"star"},
     /* {
         title: "Favourite Color",
         field: "color",
@@ -73,7 +49,6 @@ const columns = [
         headerFilter: "select",
         headerFilterParams: { values: colorOptions }
       }, */
-]
 
 /* const customStyles = {
     content : {
@@ -150,8 +125,8 @@ class Table extends React.Component {
             <React.Fragment>
                 <ReactTabulator 
                     ref={ref => (this.ref = ref)} /* atribui a referencia para table a this.ref */
-                    columns={columns} 
-                    data={tableData}
+                    columns={this.props.headers} 
+                    data={this.props.data}
                     options={options}
                     className="table"
                     tableBuilt = {this.setFilter}

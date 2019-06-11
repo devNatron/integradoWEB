@@ -19,7 +19,25 @@ class tabela extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value})
   }
+  
+  columns = [
+    {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
+    // {title:'nome da instituição', field:"nome_instituicao", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'natureza administrativa', field:"natureza", sorter:"string", align:"center", formatter:"plaintext"},
+    // {title:'campus', field:"campus", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'estado', field:"estado", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'cidade', field:"cidade", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'número de cursos', field:"cont", sorter:"string", align:"center", formatter:"plaintext"},
+   ]
  
+   tableData = [
+     {sigla:"UFScar", natureza:'Publica', estado: 'SP', cidade:'Sorocaba', cont: 5},
+     {sigla:"UFScar", natureza:'Publica', estado: 'RJ', cidade:'Sorocaba', cont: 4},
+     {sigla:"UFScar", natureza:'Privada', estado: 'AM', cidade:'Sorocaba', cont: 2},
+     {sigla:"UFScar", natureza:'Privada', estado: 'RJ', cidade:'Sorocaba', cont: 1},
+     {sigla:"UFScar", natureza:'Privada', estado: 'PE', cidade:'Sorocaba', cont: 3},
+   ]
+
   render() {
     return (
       <main className="Content page-animation page-tabela">
@@ -61,7 +79,7 @@ class tabela extends React.Component {
               <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
             </div>
           </div>
-          <Table></Table>
+          <Table data={this.tableData} headers={this.columns}></Table>
       </main>
     )
   }
