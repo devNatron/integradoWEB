@@ -20,11 +20,13 @@ class InfoBar extends React.Component {
         qual curso escolher!<br/>Você pode ver os campi que mais ofertaram cursos 
         recentemente ou escolher uma área de interesse para ver se um dos cursos 
         dela chama sua atenção.<br/>Experimente!</p>),
-      "/tabela/pesquisa-por-area": (<p> Os cursos estão agrupados por áreas comuns de estudo ou atuação.<br/> <br/> 
+      "/tabela/pesquisa-por-area": (<p> Os cursos estão agrupados por áreas comuns de estudo ou atuação. 
             Escolha um dos grupos que você tem interesse para ver todos os cursos relacionados
-            a essa área. <br/> <br/> Após escolher um grupo, você pode escolher um 
+            a essa área. Após escolher um grupo, você pode escolher um 
             curso e ver quais faculdades ofertam-no!</p>),
-      "/tabela/ranking-campi-cursos": (<p>CADE MEU BACKEEEEEEND</p>)
+      "/tabela/ranking-campi-cursos": (<p>Nesta tabela, você pode ver os campi que ofertaram mais cursos
+            em um período de anos. <br/> Escolha nos filtros o ano de início e do fim da sua pesquisa e
+            você verá, em ordem crescente de número de cursos, os campi.</p>)
     } 
     render(){
       return (
