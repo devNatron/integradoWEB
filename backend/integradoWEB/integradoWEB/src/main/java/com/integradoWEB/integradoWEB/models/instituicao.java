@@ -6,13 +6,9 @@
 package com.integradoWEB.integradoWEB.models;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Query;
 import javax.persistence.Table;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -22,9 +18,7 @@ import org.hibernate.SessionFactory;
 @Table(name="instituicao")
 public class instituicao implements Serializable {
     @Id
-    private String sigla;
-    private String nome_instituicao;
-    private String natureza_administrativa;
+    private String sigla, nome_instituicao, natureza_administrativa;
     private int nota_IGC;
     
         
