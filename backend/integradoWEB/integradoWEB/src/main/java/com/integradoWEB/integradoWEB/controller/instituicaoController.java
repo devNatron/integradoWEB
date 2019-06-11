@@ -36,7 +36,7 @@ public class instituicaoController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/inst", produces="application/json;charset=UTF-8")
     public List<instituicao> listaInst(){
-            return instituicaoRepo.findAllActiveUsers();
+            return instituicaoRepo.buscarTodos();
     }
 
 }

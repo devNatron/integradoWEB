@@ -16,9 +16,10 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface campusRepository extends JpaRepository<campus, String>{
     
+    /* DEFINICAO DAS QUERYS*/
     @Query(
     value = "SELECT * FROM campus", 
     nativeQuery = true)
-    List<campus> buscar();
+    List<campus> buscarTodos();
     
 }

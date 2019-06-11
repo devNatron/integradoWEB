@@ -18,8 +18,10 @@ public interface instituicaoRepository extends JpaRepository<instituicao, String
     
     /* DEFINICAO DAS QUERYS*/
     @Query(
-    value = "SELECT * FROM instituicao i, curso c WHERE c.sigla = i.sigla LIMIT 10", 
+    value = "SELECT * FROM instituicao", 
     nativeQuery = true)
-    List<instituicao> findAllActiveUsers();
+    List<instituicao> buscarTodos();
+    
+    
     
 }
