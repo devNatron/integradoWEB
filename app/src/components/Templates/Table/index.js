@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import "./styles.css";
 import 'react-tabulator/lib/styles.css'; // required styles
@@ -109,8 +110,23 @@ class Table extends React.Component {
     }
 
     rowClick = (e) => {
-        console.log(e)
-        this.setState({modalIsOpen: true});
+        // this.setState({modalIsOpen: true});
+            fetch('http://localhost:8080/api/instituicoes/USP', {
+                headers:{
+                    'Content-Type':'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            // .then(response => response.json())
+            // axios.get('http://localhost:8080/api/instituicoes/USP', {
+            //     headers:{
+            //         'Content-Type':'application/json',
+            //     }
+            // })
+            // .then(response => {
+            //     console.log(response)
+            // })
     }
 
     state = {
