@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="curso")
 @SecondaryTable(name="campus")
-
 public class consultaNomeNatureza implements Serializable {
     @Id   
     private String sigla;

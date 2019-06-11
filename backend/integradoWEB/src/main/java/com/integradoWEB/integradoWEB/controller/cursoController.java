@@ -9,6 +9,7 @@ import com.integradoWEB.integradoWEB.models.consultaNomeNatureza;
 import com.integradoWEB.integradoWEB.models.curso;
 import com.integradoWEB.integradoWEB.repository.cursoRepository;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,19 +31,19 @@ public class cursoController {
 
     /* DEFINICAO DE ROTAS E CHAMADA DE FUNCOES NA DAO*/
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path = "/curso", produces = "application/json;charset=UTF-8")
+    @GetMapping(path = "/cursoTodos", produces = "application/json;charset=UTF-8")
     public List<curso> listaCurso() {
         return cursoRepo.buscarTodos();
     }
     @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping(path = "/curso", consumes = "application/json", produces = "application/json")
-    public List<curso> listaCursoPorArea(@RequestBody String area) {
-        return cursoRepo.buscarPorArea(area);
+    @PostMapping(path = "/cursoPorArea", consumes = "application/json", produces = "application/json")
+    public List<curso> listaCursoPorArea(@RequestBody Map<String, String> payload) {
+        return cursoRepo.buscarPorArea(payload.get("area"));
     }
     
     @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping(path = "/curso", consumes = "application/json", produces = "application/json")
-    public List<consultaNomeNatureza> listaCursoPorNomeNatureza(@RequestBody String nome, @RequestBody String natureza) {
-        return cursoRepo.buscarPorNomeNatureza(nome, natureza);
+    @PostMapping(path = "/teste", consumes = "application/json", produces = "application/json")
+    public List<consultaNomeNatureza> listaCursoPorNomeNatureza(@RequestBody Map<String, String> payload){
+        return cursoRepo.buscarPorNomeNatureza(payload.get("nome"), payload.get("natureza"));
     }
 }
