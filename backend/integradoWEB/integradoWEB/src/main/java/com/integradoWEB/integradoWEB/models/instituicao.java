@@ -27,17 +27,6 @@ public class instituicao implements Serializable {
     private String natureza_administrativa;
     private int nota_IGC;
     
-//    private SessionFactory sessionFactory;
-//    public void setSessionFactory(SessionFactory sf) {
-//        this.sessionFactory = sf;
-//    }
-//    
-//    public void updatePhone() {
-//        Session session = this.sessionFactory.getCurrentSession();
-//       Query query = session.createQuery("from instituicao where sigla = USP ");
-////        query.setParameter("id", "123");
-//        List usp = query.list();
-//    }
         
     public instituicao(){
         sigla = "";

@@ -111,7 +111,7 @@ class Table extends React.Component {
 
     rowClick = (e) => {
         // this.setState({modalIsOpen: true});
-            fetch('http://localhost:8080/api/instituicoes/USP', {
+            fetch('http://localhost:8080/api/inst', {
                 headers:{
                     'Content-Type':'application/json',
                 },

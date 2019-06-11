@@ -26,13 +26,6 @@ public class instituicaoControler {
     @Autowired
     instituicaoRepository instituicaoRepo;
 
-//    @ApiOperation(value="Retorna uma lista de Produtos")
-    @GetMapping(path = "/instituicoes", produces="application/json;charset=UTF-8")
-    public List<instituicao> listaInstituicoes(){
-            return instituicaoRepo.;
-    }
-
-//    @ApiOperation(value="Retorna um produto unico")
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/instituicoes/{sigla}", produces="application/json;charset=UTF-8")
     public Optional<instituicao> listainstituicaoUnico(@PathVariable(value="sigla") String sigla){
@@ -44,22 +37,5 @@ public class instituicaoControler {
     public List<instituicao> listaInst(){
             return instituicaoRepo.findAllActiveUsers();
     }
-//
-//    @ApiOperation(value="Salva um produto")
-//    @PostMapping("/produto")
-//    public Produto salvaProduto(@RequestBody @Valid Produto produto) {
-//            return produtoRepository.save(produto);
-//    }
-//
-//    @ApiOperation(value="Deleta um produto")
-//    @DeleteMapping("/produto")
-//    public void deletaProduto(@RequestBody @Valid Produto produto) {
-//            produtoRepository.delete(produto);
-//    }
-//
-//    @ApiOperation(value="Atualiza um produto")
-//    @PutMapping("/produto")
-//    public Produto atualizaProduto(@RequestBody @Valid Produto produto) {
-//            return produtoRepository.save(produto);
-//    }
+
 }
