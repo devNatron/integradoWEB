@@ -1,16 +1,7 @@
-.page-tabela{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
 .table{
     width: auto;
     max-width: 90%;
-    max-height: 80%;
+    height: auto;
     font-family: 'Open Sans', sans-serif;
     border: 4px solid black;
 }
@@ -18,19 +9,6 @@
 .tabulator-headers{
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
-}
-
-.page-tabela .intro-wrapper{
-    margin-top: 15px;
-    text-align: center;
-}
-
-.intro-wrapper .icon-university{
-    font-size: 4em;
-}
-
-.intro-wrapper p{
-    /* margin: 10px 0; */
 }
 
 .modal{

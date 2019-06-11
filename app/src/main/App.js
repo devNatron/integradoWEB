@@ -10,20 +10,18 @@ import InfoBar from '../components/Templates/InfoBar'
 
 class App extends React.Component {
   state = {
-    // Infobar: "/home"
-    Infobar: this.props.location.pathname
-    // image: "/ufscar"
+    Infobar: this.props.location.pathname,
+    image: "home"
   } 
 
-  changeInfobarData = function(texto) {
-    // console.log("app.js: " + texto)
-    this.setState({Infobar: texto})
+  changeInfobarData = function(texto, imagem) {
+    this.setState({Infobar: texto, image: imagem})
   }
 
   render(){
     return (
         <div className="app">
-          <InfoBar stateNav={this.state.Infobar}/>
+          <InfoBar stateNav={this.state.Infobar} imgSrc={this.state.image}/>
           <Route render={({location}) => (
             <TransitionGroup>
               <CSSTransition

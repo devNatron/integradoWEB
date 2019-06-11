@@ -4,10 +4,10 @@ import "./styles.css";
 import 'react-tabulator/lib/styles.css'; // required styles
 import "./tabulator.min.css"; // theme
 import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faUniversity } from '@fortawesome/free-solid-svg-icons'
+
 
 import Modal from 'react-modal';
 
@@ -88,17 +88,17 @@ const columns = [
 class Table extends React.Component {
     //ref.table.setFilter("uptime", ">", 10);
     componentDidMount() {
-        let url = this.props.location.pathname;
-        if(url === "/tabela" && this.props.location.data){
-            /* fetch('/tabelaFiltrada')
-            .then(response => response.json())
-            .then(data => this.setState({ data })); */
-            console.log("tem")
-        }
-        else{
-            console.log("Ntem")
-        }
-        console.log(this.props)
+        // let url = this.props.location.pathname;
+        // if(url === "/tabela" && this.props.location.data){
+        //     fetch('/tabelaFiltrada')
+        //     .then(response => response.json())
+        //     .then(data => this.setState({ data }));
+        //     console.log("tem")
+        // }
+        // else{
+        //     console.log("Ntem")
+        // }
+        // console.log(this.props)
     }
 
     setFilter = () => {
@@ -115,7 +115,8 @@ class Table extends React.Component {
 
     state = {
         modalIsOpen: false,
-        req: {
+        filter:{
+            
         }
     };
   
@@ -138,11 +139,7 @@ class Table extends React.Component {
     
     render(){
         return (
-            <main className="Content page-animation page-tabela">
-                <div className="intro-wrapper">
-                    <FontAwesomeIcon icon={faUniversity} className="icon-university"/>
-                    <p>Tabela de relacões melhores universidades de São Paulo</p>
-                </div>
+            <React.Fragment>
                 <ReactTabulator 
                     ref={ref => (this.ref = ref)} /* atribui a referencia para table a this.ref */
                     columns={columns} 
@@ -153,30 +150,29 @@ class Table extends React.Component {
                     rowBorderColor="#000"
                     rowClick={this.rowClick}
                 />
-            <div>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    ariaHideApp={false}
-                    className="modal"
-                    style={{
-                        overlay: {
-                          position: 'fixed',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          backgroundColor: 'rgba(225, 231, 241, 0.75)'
-                        }
-                    }}
-                >
-                    <FontAwesomeIcon icon={faTimes} className="icon-close" onClick={this.closeModal}/>
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Informações adicionais - </h2>
-                </Modal>
-            </div>
-
-            </main >
+                <div>
+                    <Modal
+                        isOpen={this.state.modalIsOpen}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        ariaHideApp={false}
+                        className="modal"
+                        style={{
+                            overlay: {
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: 'rgba(225, 231, 241, 0.75)'
+                            }
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTimes} className="icon-close" onClick={this.closeModal}/>
+                        <h2 ref={subtitle => this.subtitle = subtitle}>Informações adicionais - </h2>
+                    </Modal>
+                </div>
+            </React.Fragment>
         )
     }
 }

@@ -4,7 +4,7 @@
 }
 
 html, body, #root{
-    height: 100%;
+    height: 100vh;
 }
 
 .page-animation {
@@ -19,7 +19,7 @@ html, body, #root{
     grid-template-areas: 
         "InfoBar Content"
         "InfoBar Nav";
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color: #F5F5F5;
     background-color: rgb(205,215,231);
@@ -52,6 +52,7 @@ main.Content {
     font-family: 'Oswald', sans-serif;
 }
 
+/* fade do menu e tabelas */ 
 .fade-appear,
 .fade-enter {
     opacity: 0;
@@ -72,33 +73,27 @@ main.Content {
     transition: opacity 150ms linear;
 }
 
-/* .fade-appear {
-    opacity: 0;
+
+/* transicao infobar */ 
+
+/* .dialog-enter {
+    opacity: 0.01;
+    transform: scale(1.1);
 }
 
-.fade-appear.fade-appear-active{
-    opacity: 1;
-    transition: opacity 300ms linear;
+.dialog-enter-active {
+opacity: 1;
+transform: scale(1);
+transition: all 300ms;
 }
 
-.fade-exit{
-    opacity: 1;
+.dialog-exit {
+opacity: 1;
+transform: scale(1);
 }
 
-.fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms linear;
-}
-
-.fade-exit-done{
-    opacity: 0;
-}
-
-.fade-enter{
-    opacity: 0;
-}
-
-.fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms linear;
+.dialog-exit-active {
+opacity: 0.01;
+transform: scale(1.1);
+transition: all 300ms;
 } */
