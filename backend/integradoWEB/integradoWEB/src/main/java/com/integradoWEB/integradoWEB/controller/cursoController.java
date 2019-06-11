@@ -8,11 +8,9 @@ package com.integradoWEB.integradoWEB.controller;
 import com.integradoWEB.integradoWEB.models.curso;
 import com.integradoWEB.integradoWEB.repository.cursoRepository;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,5 +29,4 @@ public class cursoController {
     public List<curso> listaCurso(){
             return cursoRepo.findAll();
     }
-
 }
