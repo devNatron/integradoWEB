@@ -1,0 +1,69 @@
+.page-tabela{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.page-tabela .intro-wrapper{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.intro-wrapper .icon-university{
+    font-size: 4em;
+}
+
+.page-tabela .filters-wrapper {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 500px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.page-tabela .filters-wrapper > div{
+    margin-right: 10px;
+    margin: 10px 0;
+}
+
+.page-tabela #input-grau{
+    padding: 0;
+    max-width: 125px;
+    display: inline-block;
+}
+
+.page-tabela #input-estado{
+    padding: 0;
+    max-width: 200px;
+    display: inline-block;
+}
+
+.page-tabela #input-curso{
+    padding: 0;
+    max-width: 150px;
+    display: inline-block;
+}
+
+.page-tabela #input-area{
+    padding: 0;
+    max-width: 130px;
+    display: inline-block;
+}
+
+.buttom-apply{
+    width: 100%;
+}
+
+.buttom-apply #aplicar{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+}

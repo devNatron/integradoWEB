@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from '../Table'
+import Table from '../../Utils/Table'
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons'
@@ -61,7 +61,7 @@ class tabela extends React.Component {
               <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
             </div>
           </div>
-          <Table></Table>
+          <Table Data={this.state.area}></Table>
       </main>
     )
   }

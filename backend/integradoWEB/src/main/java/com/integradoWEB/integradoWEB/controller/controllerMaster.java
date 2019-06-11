@@ -40,5 +40,4 @@ public class controllerMaster {
     public List<campus> listaCam(){
             return campusRepo.buscar();
     }
-
 }

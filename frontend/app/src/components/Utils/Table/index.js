@@ -110,7 +110,7 @@ class Table extends React.Component {
     }
 
     rowClick = (e) => {
-        // this.setState({modalIsOpen: true});
+            this.setState({modalIsOpen: true});
             fetch('http://localhost:8080/api/inst', {
                 headers:{
                     'Content-Type':'application/json',
@@ -118,22 +118,14 @@ class Table extends React.Component {
             })
             .then(response => response.json())
             .then(data => console.log(data))
-            // .then(response => response.json())
-            // axios.get('http://localhost:8080/api/instituicoes/USP', {
-            //     headers:{
-            //         'Content-Type':'application/json',
-            //     }
-            // })
-            // .then(response => {
-            //     console.log(response)
-            // })
     }
 
     state = {
         modalIsOpen: false,
         filter:{
             
-        }
+        },
+        data: this.props.Data,
     };
   
     openModal = this.openModal.bind(this);
@@ -186,6 +178,7 @@ class Table extends React.Component {
                     >
                         <FontAwesomeIcon icon={faTimes} className="icon-close" onClick={this.closeModal}/>
                         <h2 ref={subtitle => this.subtitle = subtitle}>Informações adicionais - </h2>
+                        {this.state.data}
                     </Modal>
                 </div>
             </React.Fragment>
