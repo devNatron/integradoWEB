@@ -5,9 +5,14 @@
  */
 package com.integradoWEB.integradoWEB.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,14 +22,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name="campus")
 public class campus implements Serializable {
+    
     @Id
-    private String nome_campus, estado, cidade, sigla;  
+    @Column(name = "nome_campus")
+    private String nome_campus;
+    @Id
+    @Column(name = "sigla")
+    private String sigla;
+    @ManyToOne
+//    @JoinColumn(name="sigla", referencedColumnName="sigla",insertable = false,updatable = false)
+//    @JsonIgnore
+    @JoinColumn(name = "sigla")
+    private instituicao inst;
+    @Column(name = "estado")
+    private String estado;
+    @Column(name = "cidade")
+    private String cidade;
+    
     
     public campus(){
         nome_campus = "";
         estado = "";
         cidade = "";
-        sigla = "";
+        sigla = ""; 
     }
 
     public String getNome_campus() {
@@ -58,5 +78,4 @@ public class campus implements Serializable {
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
-    
 }
