@@ -23,7 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class campusController {
     @Autowired
     campusRepository campusRepo;
-
+    
+    /* DEFINICAO DE ROTAS E CHAMADA DE FUNCOES NA DAO*/
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/campus", produces="application/json;charset=UTF-8")
     public List<campus> listaCampus(){

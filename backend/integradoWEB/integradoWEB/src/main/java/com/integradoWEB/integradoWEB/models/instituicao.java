@@ -6,13 +6,8 @@
 package com.integradoWEB.integradoWEB.models;
 
 import java.io.Serializable;
-import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,18 +17,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="instituicao")
 public class instituicao implements Serializable {
-    
     @Id
-    @Column(name = "sigla")
     private String sigla;
-    private String nome_instituicao, natureza_administrativa;
+    private String nome_instituicao;
+    private String natureza_administrativa;
     private int nota_IGC;
-//    @OneToMany
-//    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "instituicao")  
-//    private Set<campus> campi;
-    @OneToMany(mappedBy = "inst", cascade = CascadeType.ALL)
-    private Set<campus> campi;
     
+        
     public instituicao(){
         sigla = "";
         nome_instituicao = "";

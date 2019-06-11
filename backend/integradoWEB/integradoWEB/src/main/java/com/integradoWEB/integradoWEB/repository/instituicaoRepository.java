@@ -16,9 +16,10 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface instituicaoRepository extends JpaRepository<instituicao, String>{
     
+    /* DEFINICAO DAS QUERYS*/
     @Query(
-    value = "SELECT * FROM instituicao", 
+    value = "SELECT * FROM instituicao i, curso c WHERE c.sigla = i.sigla LIMIT 10", 
     nativeQuery = true)
-    List<instituicao> findAll();
+    List<instituicao> findAllActiveUsers();
     
 }

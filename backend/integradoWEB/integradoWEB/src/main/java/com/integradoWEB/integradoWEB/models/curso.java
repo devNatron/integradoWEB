@@ -19,7 +19,8 @@ import javax.persistence.Table;
 @Table(name="curso")
 public class curso implements Serializable {
     @Id
-    private String nome_curso, area, grau, turno, campus, sigla;
+    private String nome_curso;
+    private String area, grau, turno, campus, sigla;
     private int duracao, nota_enade, ano_criacao;
     
     public curso(){

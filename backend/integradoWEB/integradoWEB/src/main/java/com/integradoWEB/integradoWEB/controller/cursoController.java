@@ -24,9 +24,11 @@ public class cursoController {
     @Autowired
     cursoRepository cursoRepo;
 
+    /* DEFINICAO DE ROTAS E CHAMADA DE FUNCOES NA DAO*/
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/curso", produces="application/json;charset=UTF-8")
     public List<curso> listaCurso(){
             return cursoRepo.findAll();
     }
+
 }

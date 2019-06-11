@@ -9,14 +9,16 @@ import com.integradoWEB.integradoWEB.models.campus;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
 /**
  *
- * @author victo
+ * @author Novaes
  */
 public interface campusRepository extends JpaRepository<campus, String>{
+    
     @Query(
     value = "SELECT * FROM campus", 
     nativeQuery = true)
     List<campus> buscar();
+    
 }
-

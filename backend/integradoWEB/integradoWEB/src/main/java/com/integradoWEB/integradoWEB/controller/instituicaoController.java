@@ -25,16 +25,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class instituicaoController {
     @Autowired
     instituicaoRepository instituicaoRepo;
-
-    @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path = "/inst", produces="application/json;charset=UTF-8")
-    public List<instituicao> listaInst(){
-            return instituicaoRepo.findAll();
-    }
     
+    /* DEFINICAO DE ROTAS E CHAMADA DE FUNCOES NA DAO*/
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/instituicoes/{sigla}", produces="application/json;charset=UTF-8")
     public Optional<instituicao> listainstituicaoUnico(@PathVariable(value="sigla") String sigla){
             return instituicaoRepo.findById(sigla);
     }
+    
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(path = "/inst", produces="application/json;charset=UTF-8")
+    public List<instituicao> listaInst(){
+            return instituicaoRepo.findAllActiveUsers();
+    }
+
 }

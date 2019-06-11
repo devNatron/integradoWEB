@@ -5,46 +5,85 @@
  */
 package com.integradoWEB.integradoWEB.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  *
- * @author victo
+ * @author Novaes
  */
 @Entity
 @Table(name="campus")
 public class campus implements Serializable {
-    
     @Id
-    @Column(name = "nome_campus")
     private String nome_campus;
-    @Id
-    @Column(name = "sigla")
-    private String sigla;
-    @ManyToOne
-//    @JoinColumn(name="sigla", referencedColumnName="sigla",insertable = false,updatable = false)
-//    @JsonIgnore
-    @JoinColumn(name = "sigla")
-    private instituicao inst;
-    @Column(name = "estado")
     private String estado;
-    @Column(name = "cidade")
     private String cidade;
-    
+    private String sigla;
     
     public campus(){
         nome_campus = "";
         estado = "";
         cidade = "";
-        sigla = ""; 
+        sigla = "";
+    }
+    
+    /**
+     * @return the nome_campus
+     */
+    public String getNomeCampus() {
+        return nome_campus;
+    }
+
+    /**
+     * @param nome_campus the nome_campus to set
+     */
+    public void setNomeCampus(String nome_campus) {
+        this.nome_campus = nome_campus;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    /**
+     * @return the sigla
+     */
+    public String getSiglaInstituicao() {
+        return sigla;
+    }
+
+    /**
+     * @param sigla the sigla to set
+     */
+    public void setSiglaInstituicao(String sigla) {
+        this.sigla = sigla;
     }
 
     public String getNome_campus() {
@@ -53,29 +92,5 @@ public class campus implements Serializable {
 
     public void setNome_campus(String nome_campus) {
         this.nome_campus = nome_campus;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
     }
 }
