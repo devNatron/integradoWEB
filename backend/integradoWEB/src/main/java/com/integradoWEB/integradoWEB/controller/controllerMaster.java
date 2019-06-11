@@ -38,6 +38,6 @@ public class controllerMaster {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/teste", produces="application/json;charset=UTF-8")
     public List<campus> listaCam(){
-            return campusRepo.buscar();
+            return campusRepo.buscarTodos();
     }
 }
