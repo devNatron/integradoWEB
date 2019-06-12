@@ -5,7 +5,6 @@
  */
 package com.integradoWEB.integradoWEB.repository;
 
-import com.integradoWEB.integradoWEB.models.consultaNomeNatureza;
 import com.integradoWEB.integradoWEB.models.curso;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -32,5 +31,5 @@ public interface cursoRepository extends JpaRepository<curso, String>{
     @Query(
     value = "select*from busca_nome_natureza(:varnome, :varNatureza);",
     nativeQuery = true)
-    List<consultaNomeNatureza> buscarPorNomeNatureza(@Param("varnome") String nome, @Param("varNatureza") String natureza);
+    List<curso> buscarPorNomeNatureza(@Param("varnome") String nome, @Param("varNatureza") String natureza);
 }
