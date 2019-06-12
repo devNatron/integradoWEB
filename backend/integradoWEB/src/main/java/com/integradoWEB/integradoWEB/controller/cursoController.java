@@ -5,7 +5,6 @@
  */
 package com.integradoWEB.integradoWEB.controller;
 
-import com.integradoWEB.integradoWEB.models.consultaNomeNatureza;
 import com.integradoWEB.integradoWEB.models.curso;
 import com.integradoWEB.integradoWEB.repository.cursoRepository;
 import java.util.List;
@@ -43,7 +42,7 @@ public class cursoController {
     
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/teste", consumes = "application/json", produces = "application/json")
-    public List<consultaNomeNatureza> listaCursoPorNomeNatureza(@RequestBody Map<String, String> payload){
+    public List<curso> listaCursoPorNomeNatureza(@RequestBody Map<String, String> payload){
         return cursoRepo.buscarPorNomeNatureza(payload.get("nome"), payload.get("natureza"));
     }
 }
