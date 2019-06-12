@@ -31,7 +31,6 @@ class Home extends React.Component {
                 <div className="form-wrapper">
                     <form>
                         <div className="filters-wrapper">
-                            {/* <FontAwesomeIcon icon={faCoffee}/> */}
                             <div>
                                 <label>Natureza administrativa: </label>
                                 <NativeSelect id="input-natureza" name="natureza" value={this.state.natureza} 
@@ -74,4 +73,3 @@ class Home extends React.Component {
 }
 
 export default Home
-/* https://material-ui.com/demos/text-fields/ */

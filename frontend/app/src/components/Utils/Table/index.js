@@ -4,72 +4,15 @@ import "./styles.css";
 import 'react-tabulator/lib/styles.css'; // required styles
 import "./tabulator.min.css"; // theme
 import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import { React15Tabulator }
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 import Modal from 'react-modal';
 
-let options = {
-    pagination:"local",
-    paginationSize:8,
-    layout:"fitData",
-/*     initialSort:[
-        {column:"siglaInstituicao", dir:"desc"}, //sort by this first
-    ] */
-}
 
-/* const colorOptions = {
-    [""]: "&nbsp;",
-    red: "red",
-    green: "green",
-    yellow: "yellow"
-  }; */
-
-    /* {
-        title: "Favourite Color",
-        field: "color",
-        editor: "select",
-        editorParams: {
-          allowEmpty: true,
-          showListOnEmpty: true,
-          values: colorOptions
-        },
-        headerFilter: "select",
-        headerFilterParams: { values: colorOptions }
-      },
-      {
-        title: "Favourite Color",
-        field: "color2",
-        editor: "select",
-        editorParams: {
-          allowEmpty: true,
-          showListOnEmpty: true,
-          values: colorOptions
-        },
-        headerFilter: "select",
-        headerFilterParams: { values: colorOptions }
-      }, */
-
-/* const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
-  }; */
 
 class Table extends React.Component {
-
-    /* setFilter = () => {
-        setTimeout(() => {
-        }, 0);
-    } */
-
     rowClick = async (e) => {
         let curso = e.target.parentElement.childNodes[1].innerText;
         let campus = e.target.parentElement.childNodes[3].innerText;
@@ -114,6 +57,15 @@ class Table extends React.Component {
     closeModal() {
         this.setState({modalIsOpen: false});
     }
+
+    options = {
+        pagination:"local",
+        paginationSize:8,
+        layout:"fitData",
+        initialSort:[
+            {column: this.props.sort, dir:"desc"}, //sort by this first
+        ] 
+    }
     
     render(){
         return (
@@ -122,7 +74,7 @@ class Table extends React.Component {
                     ref={ref => (this.ref = ref)} /* atribui a referencia para table a this.ref */
                     columns={this.props.headers} 
                     data={this.props.data}
-                    options={options}
+                    options={this.options}
                     className="table"
                     tableBuilt = {this.setFilter}
                     rowBorderColor="#000"

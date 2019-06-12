@@ -33,12 +33,6 @@ class InfoBar extends React.Component {
         <div className="InfoBar" style={{backgroundImage : `url(${images[this.props.imgSrc]})`}}>
             <div className = "TextBox">
                 {this.state[this.props.stateNav]} 
-                {/* Inicio: */}
-                {/* Selecione uma universidade da lista à direita para ver informacoes sobre ela
-                e seus campi */}
-                {/* Selecione um curso para ver em qual campus é oferecido e sua área comum*/}
-                {/* Selecione um campus da lista à direita para ver os cursos que ele oferece */}
-                {/* Pesquisa por área */}
             </div>
         </div>
       )

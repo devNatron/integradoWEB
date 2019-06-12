@@ -8,9 +8,11 @@ package com.integradoWEB.integradoWEB.controller;
 import com.integradoWEB.integradoWEB.models.campus;
 import com.integradoWEB.integradoWEB.repository.campusRepository;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +28,8 @@ public class campusController {
     
     /* DEFINICAO DE ROTAS E CHAMADA DE FUNCOES NA DAO*/
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path = "/campus", produces="application/json;charset=UTF-8")
-    public List<campus> listaCampus(){
-            return campusRepo.buscarTodos();
+    @PostMapping(path = "/ranquearCampi", consumes = "application/json", produces = "application/json")
+    public List<campus> listaCursoModal(@RequestBody Map<String, Integer> payload){
+        return campusRepo.ranquearCampi(payload.get("anoInicial"), payload.get("anoFinal"));
     }
 }

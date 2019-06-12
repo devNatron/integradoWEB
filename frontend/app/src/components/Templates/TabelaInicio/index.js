@@ -11,7 +11,6 @@ class tabela extends React.Component {
   componentDidMount() {
     if(this.props.location.data){
       if(this.props.location.data.filter){
-        console.log(this.props)
         fetch('http://localhost:8080/api/filter', {
             headers:{
                 'Content-Type':'application/json',
@@ -58,7 +57,6 @@ state = {
   }
 
   handleClick() {
-    console.log(this.state)
     fetch('http://localhost:8080/api/filter', {
         headers:{
             'Content-Type':'application/json',
@@ -82,8 +80,8 @@ state = {
     return (
       <main className="Content page-animation page-tabela">
           <div className="intro-wrapper">
-              {/* <FontAwesomeIcon icon={faUniversity} className="icon-university"/> */}
-              <p>Tabela de relacões melhores universidades de São Paulo</p>
+              <p>Selecione um curso da tabela abaixo para ver informações sobre ela
+                e seus campi</p>
           </div>
           <div className="filters-wrapper">
             <div>
@@ -115,7 +113,7 @@ state = {
               <Button id="aplicar" variant="contained" color="primary" onClick={this.handleClick.bind(this)}>Aplicar Filtros</Button>
             </div>
           </div>
-          <Table data={this.state.data} headers={this.columns}></Table>
+          <Table data={this.state.data} headers={this.columns} sort={"siglaInstituicao"}></Table>
       </main>
     )
   }

@@ -56,8 +56,8 @@ class tabela extends React.Component {
     return (
       <main className="Content page-animation page-tabelaArea">
           <div className="intro-wrapper">
-              {/* <FontAwesomeIcon icon={faUniversity} className="icon-university"/> */}
-              <p>Tabela de relacões melhores universidades de São Paulo</p>
+              <p>Selecione um curso da tabela abaixo para ver informações sobre ela
+                e seus campi</p>
           </div>
           <div className="filters-wrapper">
             <div>
@@ -78,7 +78,7 @@ class tabela extends React.Component {
               <Button id="aplicar" variant="contained" color="primary" onClick={this.handleClick.bind(this)}>Aplicar</Button>
             </div>
           </div>
-          <Table data={this.state.data} headers={this.columns}></Table>
+          <Table data={this.state.data} headers={this.columns} sort={"siglaInstituicao"}></Table>
       </main>
     )
   }

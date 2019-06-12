@@ -22,68 +22,15 @@ public class campus implements Serializable {
     private String estado;
     private String cidade;
     private String sigla;
+    private int cont;
+
     
     public campus(){
         nome_campus = "";
         estado = "";
         cidade = "";
         sigla = "";
-    }
-    
-    /**
-     * @return the nome_campus
-     */
-    public String getNomeCampus() {
-        return nome_campus;
-    }
-
-    /**
-     * @param nome_campus the nome_campus to set
-     */
-    public void setNomeCampus(String nome_campus) {
-        this.nome_campus = nome_campus;
-    }
-
-    /**
-     * @return the estado
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    /**
-     * @return the cidade
-     */
-    public String getCidade() {
-        return cidade;
-    }
-
-    /**
-     * @param cidade the cidade to set
-     */
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    /**
-     * @return the sigla
-     */
-    public String getSiglaInstituicao() {
-        return sigla;
-    }
-
-    /**
-     * @param sigla the sigla to set
-     */
-    public void setSiglaInstituicao(String sigla) {
-        this.sigla = sigla;
+        cont = 0;
     }
 
     public String getNome_campus() {
@@ -93,4 +40,37 @@ public class campus implements Serializable {
     public void setNome_campus(String nome_campus) {
         this.nome_campus = nome_campus;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void setCont(int cont) {
+        this.cont = cont;
+    }
+
 }

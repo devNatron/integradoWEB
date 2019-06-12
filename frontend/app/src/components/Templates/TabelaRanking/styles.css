@@ -1,4 +1,4 @@
-.page-tabela{
+.page-tabelaRanking{
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 
-.page-tabela .intro-wrapper{
+.page-tabelaRanking .intro-wrapper{
     margin-top: 15px;
     text-align: center;
 }
@@ -16,7 +16,7 @@
     font-size: 4em;
 }
 
-.page-tabela .filters-wrapper {
+.page-tabelaRanking .filters-wrapper {
     margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
@@ -29,33 +29,14 @@
     background-color: #fff;
 }
 
-.page-tabela .filters-wrapper > div{
+.page-tabelaRanking .filters-wrapper > div{
     margin-right: 10px;
     margin: 10px 0;
 }
 
-.page-tabela #input-grau{
-    padding: 0;
-    max-width: 125px;
-    display: inline-block;
-}
-
-.page-tabela #input-estado{
-    padding: 0;
-    max-width: 200px;
-    display: inline-block;
-}
-
-.page-tabela #input-curso{
-    padding: 0;
-    max-width: 150px;
-    display: inline-block;
-}
-
-.page-tabela #input-area{
-    padding: 0;
-    max-width: 130px;
-    display: inline-block;
+.page-tabelaRanking .filters-wrapper div label{
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .buttom-apply{
