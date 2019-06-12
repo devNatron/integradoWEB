@@ -14,19 +14,21 @@ import Modal from 'react-modal';
 
 class Table extends React.Component {
     rowClick = async (e) => {
-        let curso = e.target.parentElement.childNodes[1].innerText;
-        let campus = e.target.parentElement.childNodes[3].innerText;
-        await fetch('http://localhost:8080/api/modalCurso', {
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({"nome": curso, "campus": campus}),
-            method: 'POST',
-        })
-        .then(response => response.json())
-        .then(data => this.setState({modal: data[0]}))
-
-        this.setState({modalIsOpen: true})
+        if(!(this.props.sort == "cont")){
+            let curso = e.target.parentElement.childNodes[1].innerText;
+            let campus = e.target.parentElement.childNodes[3].innerText;
+            await fetch('http://localhost:8080/api/modalCurso', {
+                headers:{
+                    'Content-Type':'application/json',
+                },
+                body: JSON.stringify({"nome": curso, "campus": campus}),
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => this.setState({modal: data[0]}))
+    
+            this.setState({modalIsOpen: true})
+        }
     }
 
     state = {
