@@ -41,8 +41,14 @@ public class cursoController {
     }
     
     @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping(path = "/teste", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/filter", consumes = "application/json", produces = "application/json")
     public List<curso> listaCursoPorNomeNatureza(@RequestBody Map<String, String> payload){
-        return cursoRepo.buscarPorNomeNatureza(payload.get("nome"), payload.get("natureza"));
+        return cursoRepo.buscarPorNomeNatureza(payload.get("nome"), payload.get("natureza"), payload.get("grau"));   
+    }
+    
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping(path = "/modalCurso", consumes = "application/json", produces = "application/json")
+    public List<curso> listaCursoModal(@RequestBody Map<String, String> payload){
+        return cursoRepo.buscaModal(payload.get("nome"), payload.get("campus"));
     }
 }

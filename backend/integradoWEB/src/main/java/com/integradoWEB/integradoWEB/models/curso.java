@@ -35,19 +35,19 @@ public class curso implements Serializable {
         ano_criacao = 0;
     }
     
-    /**
-     * @return the nomeCurso
-     */
-    public String getNomeCurso() {
-        return nome_curso;
-    }
-
-    /**
-     * @param nomeCurso the nomeCurso to set
-     */
-    public void setNomeCurso(String nomeCurso) {
-        this.nome_curso = nomeCurso;
-    }
+//    /**
+//     * @return the nomeCurso
+//     */
+//    public String getNomeCurso() {
+//        return nome_curso;
+//    }
+//
+//    /**
+//     * @param nomeCurso the nomeCurso to set
+//     */
+//    public void setNomeCurso(String nomeCurso) {
+//        this.nome_curso = nomeCurso;
+//    }
 
     /**
      * @return the area

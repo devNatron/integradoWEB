@@ -14,8 +14,8 @@
 
 .modal{
     position: absolute;
-    width: 50vw;
-    height: 70vh;
+    width: 430px;
+    height: 270px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -35,6 +35,7 @@
 .modal h2{
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .icon-close{
@@ -50,3 +51,17 @@
 .icon-close:hover{
     color: black;
 }
+
+.modal-wrapper div{
+    margin-bottom: 5px;
+}
+
+.modal-wrapper div label{
+    margin-right: 5px;
+    text-transform: uppercase;
+} 
+
+/* .modal-info{
+    display: flex;
+    justify-content: space-between;
+} */

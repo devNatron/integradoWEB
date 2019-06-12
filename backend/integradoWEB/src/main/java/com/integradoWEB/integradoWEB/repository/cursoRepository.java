@@ -29,7 +29,13 @@ public interface cursoRepository extends JpaRepository<curso, String>{
     List<curso> buscarPorArea(@Param("varArea") String area);
     
     @Query(
-    value = "select*from busca_nome_natureza(:varnome, :varNatureza);",
+    value = "select*from busca_nome_natureza(:varNome, :varNatureza, :varGrau);",
     nativeQuery = true)
-    List<curso> buscarPorNomeNatureza(@Param("varnome") String nome, @Param("varNatureza") String natureza);
+    List<curso> buscarPorNomeNatureza(@Param("varNome") String nome, 
+            @Param("varNatureza") String natureza, @Param("varGrau") String grau);
+    
+    @Query(
+    value = "select * from curso_modal(:varNome, :varCampus);",
+    nativeQuery = true)
+    List<curso> buscaModal(@Param("varNome") String nome, @Param("varCampus") String natureza);
 }

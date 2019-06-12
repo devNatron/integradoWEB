@@ -2,7 +2,6 @@ import React from 'react'
 import {NavLink} from 'react-router-dom';
 
 import './styles.css'
-import lista_estados from '../../../assets/configs/lista_estados'
 
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';
@@ -12,11 +11,9 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 class Home extends React.Component {
     state = {
-        natureza: "",
+        natureza: "Pública",
         curso: "",
         grau:"",
-        estado: "",
-        lista_siglas: lista_estados
     }
 
     handleChange(event) {
@@ -39,9 +36,8 @@ class Home extends React.Component {
                                 <label>Natureza administrativa: </label>
                                 <NativeSelect id="input-natureza" name="natureza" value={this.state.natureza} 
                                 onChange={this.handleChange.bind(this)}>
-                                    <option value="">Indiferente</option>,
-                                    <option value="publica">Pública</option>,
-                                    <option value="privada">Privada</option>
+                                    <option value="Pública">Pública</option>,
+                                    <option value="Privada">Privada</option>
                                 </NativeSelect>
                             </div>
                             <div>
@@ -54,18 +50,11 @@ class Home extends React.Component {
                                 <NativeSelect id="input-grau" name="grau" value={this.state.grau} 
                                 onChange={this.handleChange.bind(this)}>
                                     <option value="">Indiferente</option>,
-                                    <option value="licenciatura">Licenciatura</option>,
-                                    <option value="bacharelado">Bacharelado</option>,
-                                    <option value="tecnologo">Tecnólogo</option>,
-                                    <option value="mestrado">Mestrado</option>,
-                                    <option value="doutorado">Doutorado</option>
-                                </NativeSelect>
-                            </div>
-                            <div>
-                                <label>Estado de preferência: </label>
-                                <NativeSelect id="input-estado" name="estado" value={this.state.estado} 
-                                onChange={this.handleChange.bind(this)}>
-                                    {this.state.lista_siglas}
+                                    <option value="Licenciatura">Licenciatura</option>,
+                                    <option value="Bacharelado">Bacharelado</option>,
+                                    <option value="Tecnólogo">Tecnólogo</option>,
+                                    <option value="Mestrado">Mestrado</option>,
+                                    <option value="Doutorado">Doutorado</option>
                                 </NativeSelect>
                             </div>
                         </div>
@@ -73,7 +62,7 @@ class Home extends React.Component {
                             <NavLink to={{ pathname:'/tabela', data:{filter: false}}}>
                                 <Button id="pular" variant="contained" color="primary">Pular</Button>
                             </NavLink>
-                            <NavLink to={{ pathname:'/tabela', data:{filter: true, area: this.state.area}}}>
+                            <NavLink to={{ pathname:'/tabela', data:{filter: true, nome: this.state.curso, natureza: this.state.natureza, grau: this.state.grau}}}>
                                 <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
                             </NavLink>
                         </div>

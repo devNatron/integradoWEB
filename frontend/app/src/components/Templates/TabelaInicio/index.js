@@ -1,45 +1,81 @@
 import React from 'react';
 import Table from '../../Utils/Table'
 import Button from '@material-ui/core/Button';
-import { NavLink } from 'react-router-dom';
-import { faUniversity } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Input from '@material-ui/core/TextField';
-import lista_estados from '../../../assets/configs/lista_estados'
 
 import './styles.css';
 
 
 class tabela extends React.Component {
-
   componentDidMount() {
-    fetch('http://localhost:8080/api/cursoTodos', {
-        headers:{
-            'Content-Type':'application/json',
-        },
-    })
-    .then(response => response.json())
-    .then(data => this.setState({data: data}))
-  }
+    if(this.props.location.data){
+      if(this.props.location.data.filter){
+        console.log(this.props)
+        fetch('http://localhost:8080/api/filter', {
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({"nome": this.props.location.data.nome, "natureza": this.props.location.data.natureza, "grau": this.props.location.data.grau}),
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => this.setState({data: data}))
+      }
+        else{
+          fetch('http://localhost:8080/api/cursoTodos', {
+              headers:{
+                  'Content-Type':'application/json',
+              },
+          })
+          .then(response => response.json())
+          .then(data => this.setState({data: data}))
+    
+        }
+    }
+      else{
+        fetch('http://localhost:8080/api/cursoTodos', {
+            headers:{
+                'Content-Type':'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => this.setState({data: data}))
 
-  state = {
-    area: "",
-    lista_siglas: lista_estados,
+      }
+}
+
+state = {
+    curso: "",
+    natureza: "Pública",
+    grau: "",
     data: [],
   }
+  
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value})
   }
+
+  handleClick() {
+    console.log(this.state)
+    fetch('http://localhost:8080/api/filter', {
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify({"nome": this.state.curso, "natureza": this.state.natureza, "grau": this.state.grau}),
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => this.setState({data: data}))
+  }
   
   columns = [
-    {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'sigla', field:"siglaInstituicao", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'curso', field:"nome_curso", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'enade', field:"nota_enade", sorter:"number", formatter:"star"}
+    {title:'Campus', field:"nomeCampus", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'enade', field:"notaEnade", sorter:"number", formatter:"star"}
   ]
   
   render() {
@@ -54,9 +90,8 @@ class tabela extends React.Component {
               <label>Natureza administrativa: </label>
               <NativeSelect id="input-natureza" name="natureza" value={this.state.natureza} 
               onChange={this.handleChange.bind(this)}>
-                  <option value="">Indiferente</option>,
-                  <option value="publica">Pública</option>,
-                  <option value="privada">Privada</option>
+                  <option value="Pública">Pública</option>,
+                  <option value="Privada">Privada</option>
               </NativeSelect>
             </div>
             <div>
@@ -69,22 +104,15 @@ class tabela extends React.Component {
                 <NativeSelect id="input-grau" name="grau" value={this.state.grau} 
                 onChange={this.handleChange.bind(this)}>
                     <option value="">Indiferente</option>,
-                    <option value="licenciatura">Licenciatura</option>,
-                    <option value="bacharelado">Bacharelado</option>,
-                    <option value="tecnologo">Tecnólogo</option>,
-                    <option value="mestrado">Mestrado</option>,
-                    <option value="doutorado">Doutorado</option>
-                </NativeSelect>
-            </div>
-            <div>
-                <label>Estado: </label>
-                <NativeSelect id="input-estado" name="estado" value={this.state.estado} 
-                onChange={this.handleChange.bind(this)}>
-                    {this.state.lista_siglas}
+                    <option value="Licenciatura">Licenciatura</option>,
+                    <option value="Bacharelado">Bacharelado</option>,
+                    <option value="Tecnólogo">Tecnólogo</option>,
+                    <option value="Mestrado">Mestrado</option>,
+                    <option value="Doutorado">Doutorado</option>
                 </NativeSelect>
             </div>
             <div className="buttom-apply">
-              <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
+              <Button id="aplicar" variant="contained" color="primary" onClick={this.handleClick.bind(this)}>Aplicar Filtros</Button>
             </div>
           </div>
           <Table data={this.state.data} headers={this.columns}></Table>

@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import "./styles.css";
 import 'react-tabulator/lib/styles.css'; // required styles
@@ -65,41 +64,31 @@ let options = {
   }; */
 
 class Table extends React.Component {
-    //ref.table.setFilter("uptime", ">", 10);
-    componentDidMount() {
-        // let url = this.props.location.pathname;
-        // if(url === "/tabela" && this.props.location.data){
-        //     fetch('/tabelaFiltrada')
-        //     .then(response => response.json())
-        //     .then(data => this.setState({ data }));
-        //     console.log("tem")
-        // }
-        // else{
-        //     console.log("Ntem")
-        // }
-        // console.log(this.props)
-    }
 
-    setFilter = () => {
+    /* setFilter = () => {
         setTimeout(() => {
-            //console.log(this.ref.table)
-            //this.ref.table.setFilter("color", "=", "green");
         }, 0);
-    }
+    } */
 
-    rowClick = (e) => {
-        this.setState({modalIsOpen: true});
-        /* fetch('http://localhost:8080/api/inst', {
+    rowClick = async (e) => {
+        let curso = e.target.parentElement.childNodes[1].innerText;
+        let campus = e.target.parentElement.childNodes[3].innerText;
+        await fetch('http://localhost:8080/api/modalCurso', {
             headers:{
                 'Content-Type':'application/json',
             },
+            body: JSON.stringify({"nome": curso, "campus": campus}),
+            method: 'POST',
         })
         .then(response => response.json())
-        .then(data => console.log(data)) */
+        .then(data => this.setState({modal: data[0]}))
+
+        this.setState({modalIsOpen: true})
     }
 
     state = {
         modalIsOpen: false,
+        modal: []
     };
   
     openModal = this.openModal.bind(this);
@@ -111,8 +100,15 @@ class Table extends React.Component {
     }
 
     afterOpenModal() {
-    // references are now sync'd and can be accessed.
-        this.subtitle.innerHTML = this.subtitle.innerHTML.concat("UFSCAR")
+        // references are now sync'd and can be accessed.
+        this.subtitle.innerHTML = this.subtitle.innerHTML.concat(this.state.modal.siglaInstituicao)
+        this.nome.innerHTML = this.state.modal.nome_curso;
+        this.area.innerHTML = this.state.modal.area;
+        this.nota.innerHTML = this.state.modal.notaEnade;
+        this.grau.innerHTML = this.state.modal.grau;
+        this.duracao.innerHTML = `${this.state.modal.duracao} semestre(s)`;
+        this.ano.innerHTML = this.state.modal.anoCriacao;
+        this.campus.innerHTML = this.state.modal.nomeCampus;
     }
 
     closeModal() {
@@ -152,7 +148,18 @@ class Table extends React.Component {
                     >
                         <FontAwesomeIcon icon={faTimes} className="icon-close" onClick={this.closeModal}/>
                         <h2 ref={subtitle => this.subtitle = subtitle}>Informações adicionais - </h2>
-                        {this.state.data}
+                        <div className="modal-wrapper">
+                            <div><label>- Nome do curso: </label> <span ref={nome => this.nome = nome}>Erro</span></div>
+                            <div><label>- Grupo de Área: </label> <span ref={area => this.area = area}>Erro</span></div>
+                                                
+                            <div><label>- Nota: </label> <span ref={nota => this.nota = nota}>-1</span></div>
+                            <div><label>- Grau: </label> <span ref={grau => this.grau = grau}>Erro</span></div>
+    
+                            <div><label>- Duração: </label> <span ref={duracao => this.duracao = duracao}>Erro</span></div>
+                            <div><label>- Ano de Criação do Curso: </label> <span ref={ano => this.ano = ano}>-1</span></div>
+
+                            <div><label>- Campus: </label> <span ref={campus => this.campus = campus}>Erro</span></div>
+                        </div>
                     </Modal>
                 </div>
             </React.Fragment>

@@ -36,13 +36,7 @@
 
 .page-tabela #input-grau{
     padding: 0;
-    max-width: 125px;
-    display: inline-block;
-}
-
-.page-tabela #input-estado{
-    padding: 0;
-    max-width: 200px;
+    width: 150px;
     display: inline-block;
 }
 
@@ -54,7 +48,7 @@
 
 .page-tabela #input-natureza{
     padding: 0;
-    max-width: 100px;
+    width: 100px;
     display: inline-block;
 }
 

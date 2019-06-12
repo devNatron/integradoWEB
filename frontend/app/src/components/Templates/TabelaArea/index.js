@@ -1,12 +1,8 @@
 import React from 'react';
 import Table from '../../Utils/Table'
 import Button from '@material-ui/core/Button';
-import { NavLink } from 'react-router-dom';
-import { faUniversity } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import NativeSelect from '@material-ui/core/NativeSelect';
-import Input from '@material-ui/core/TextField';
 import lista_estados from '../../../assets/configs/lista_estados'
 
 import './styles.css';
@@ -48,11 +44,11 @@ class tabela extends React.Component {
   }
   
   columns = [
-    {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'sigla', field:"siglaInstituicao", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'curso', field:"nome_curso", sorter:"string", align:"center", formatter:"plaintext"},
     {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'nota Enade', field:"nota_enade", sorter:"number", align:"center", formatter:"star"},
+    {title:'campus', field:"nomeCampus", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'nota Enade', field:"notaEnade", sorter:"number", align:"center", formatter:"star"},
    ]
    tableData = []
 
