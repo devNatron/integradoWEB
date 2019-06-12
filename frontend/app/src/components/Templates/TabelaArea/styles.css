@@ -1,4 +1,4 @@
-.page-tabela{
+.page-tabelaArea{
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 
-.page-tabela .intro-wrapper{
+.page-tabelaArea .intro-wrapper{
     margin-top: 15px;
     text-align: center;
 }
@@ -16,7 +16,7 @@
     font-size: 4em;
 }
 
-.page-tabela .filters-wrapper {
+.page-tabelaArea .filters-wrapper {
     margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
@@ -29,32 +29,21 @@
     background-color: #fff;
 }
 
-.page-tabela .filters-wrapper > div{
+.page-tabelaArea .filters-wrapper > div{
     margin-right: 10px;
     margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.page-tabela #input-grau{
-    padding: 0;
-    max-width: 125px;
-    display: inline-block;
+.page-tabelaArea .filters-wrapper div label{
+    margin-right: 10px;
 }
 
-.page-tabela #input-estado{
+.page-tabelaArea #input-area{
     padding: 0;
-    max-width: 200px;
-    display: inline-block;
-}
-
-.page-tabela #input-curso{
-    padding: 0;
-    max-width: 150px;
-    display: inline-block;
-}
-
-.page-tabela #input-area{
-    padding: 0;
-    max-width: 130px;
+    width: 230px;
     display: inline-block;
 }
 

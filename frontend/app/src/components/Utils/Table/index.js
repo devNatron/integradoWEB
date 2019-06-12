@@ -14,8 +14,11 @@ import Modal from 'react-modal';
 
 let options = {
     pagination:"local",
-    paginationSize:10,
-    layout:"fitDataFill",
+    paginationSize:8,
+    layout:"fitData",
+/*     initialSort:[
+        {column:"siglaInstituicao", dir:"desc"}, //sort by this first
+    ] */
 }
 
 /* const colorOptions = {
@@ -85,22 +88,18 @@ class Table extends React.Component {
     }
 
     rowClick = (e) => {
-            this.setState({modalIsOpen: true});
-            fetch('http://localhost:8080/api/inst', {
-                headers:{
-                    'Content-Type':'application/json',
-                },
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
+        this.setState({modalIsOpen: true});
+        /* fetch('http://localhost:8080/api/inst', {
+            headers:{
+                'Content-Type':'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => console.log(data)) */
     }
 
     state = {
         modalIsOpen: false,
-        filter:{
-            
-        },
-        data: this.props.Data,
     };
   
     openModal = this.openModal.bind(this);
@@ -142,12 +141,12 @@ class Table extends React.Component {
                         className="modal"
                         style={{
                             overlay: {
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            backgroundColor: 'rgba(225, 231, 241, 0.75)'
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: 'rgba(225, 231, 241, 0.75)',
                             }
                         }}
                     >

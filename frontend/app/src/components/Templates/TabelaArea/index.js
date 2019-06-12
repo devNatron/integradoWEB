@@ -12,79 +12,77 @@ import lista_estados from '../../../assets/configs/lista_estados'
 import './styles.css';
 
 class tabela extends React.Component {
+
+  componentDidMount() {
+    fetch('http://localhost:8080/api/cursoPorArea', {
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify({"area": this.state.area}),
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => this.setState({data: data}))
+  }
+
   state = {
-    area: "",
+    area: "Ciências Exatas e da Terra",
+    data: [],
     lista_siglas: lista_estados
   }
+
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value})
+  }
+
+  handleClick() {
+    fetch('http://localhost:8080/api/cursoPorArea', {
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify({"area": this.state.area}),
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => this.setState({data: data}))
   }
   
   columns = [
     {title:'sigla', field:"sigla", sorter:"string", align:"center", formatter:"plaintext"},
-    // {title:'nome da instituição', field:"nome_instituicao", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'natureza administrativa', field:"natureza", sorter:"string", align:"center", formatter:"plaintext"},
-    // {title:'campus', field:"campus", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'estado', field:"estado", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'cidade', field:"cidade", sorter:"string", align:"center", formatter:"plaintext"},
-    {title:'número de cursos', field:"cont", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'curso', field:"nome_curso", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'grau', field:"grau", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'turno', field:"turno", sorter:"string", align:"center", formatter:"plaintext"},
+    {title:'nota Enade', field:"nota_enade", sorter:"number", align:"center", formatter:"star"},
    ]
-
-  tableData = [
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'RJ', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 5},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 3},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 4},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 0},
-    {sigla:"UFScar", campus:'Sorocaba', estado: 'SP', cidade:'Sorocaba', curso: "Ciência da computacão", grau:'Graduacão', turno:'integral', duracao:'8 semestre(s)', enade: 2},
-  ]
+   tableData = []
 
   render() {
     return (
-      <main className="Content page-animation page-tabela">
+      <main className="Content page-animation page-tabelaArea">
           <div className="intro-wrapper">
               {/* <FontAwesomeIcon icon={faUniversity} className="icon-university"/> */}
               <p>Tabela de relacões melhores universidades de São Paulo</p>
           </div>
           <div className="filters-wrapper">
             <div>
-                <label>Área desejada: </label>
-                <Input id="input-area" name="area" value={this.state.area} 
-                onChange={this.handleChange.bind(this)}/>
-            </div>
-            <div>
-                <label>Curso: </label>
-                <Input id="input-curso" name="curso" value={this.state.curso} 
-                onChange={this.handleChange.bind(this)}/>
-            </div>
-            <div>
-                <label>Grau: </label>
-                <NativeSelect id="input-grau" name="grau" value={this.state.grau} 
+                <label>Área Desejada: </label>
+                <NativeSelect id="input-area" name="area" value={this.state.area} 
                 onChange={this.handleChange.bind(this)}>
-                    <option value="">Indiferente</option>,
-                    <option value="licenciatura">Licenciatura</option>,
-                    <option value="bacharelado">Bacharelado</option>,
-                    <option value="tecnologo">Tecnólogo</option>,
-                    <option value="mestrado">Mestrado</option>,
-                    <option value="doutorado">Doutorado</option>
-                </NativeSelect>
-            </div>
-            <div>
-                <label>Estado: </label>
-                <NativeSelect id="input-estado" name="estado" value={this.state.estado} 
-                onChange={this.handleChange.bind(this)}>
-                    {this.state.lista_siglas}
+                    <option value="Ciências Exatas e da Terra">Ciências Exatas e da Terra</option>,
+                    <option value="Ciências Biológicas">Ciências Biológicas</option>,
+                    <option value="Engenharias">Engenharias</option>,
+                    <option value="Ciências da Saúde">Ciências da Saúde</option>,
+                    <option value="Ciências Agrárias">Ciências Agrárias</option>,
+                    <option value="Ciências Humanas">Ciências Humanas</option>
+                    <option value="Linguística, Letras e Artes">Linguística, Letras e Artes</option>
+                    <option value="Outros">Outros</option>
                 </NativeSelect>
             </div>
             <div className="buttom-apply">
-              <Button id="aplicar" variant="contained" color="primary">Aplicar Filtros</Button>
+              <Button id="aplicar" variant="contained" color="primary" onClick={this.handleClick.bind(this)}>Aplicar</Button>
             </div>
           </div>
-          <Table data={this.tableData} headers={this.columns}></Table>
+          <Table data={this.state.data} headers={this.columns}></Table>
       </main>
     )
   }
