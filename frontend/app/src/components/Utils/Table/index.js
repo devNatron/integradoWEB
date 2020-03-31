@@ -14,7 +14,7 @@ import Modal from 'react-modal';
 
 class Table extends React.Component {
     rowClick = async (e) => {
-        if(!(this.props.sort == "cont")){
+        if(!(this.props.sort === "cont")){
             let curso = e.target.parentElement.childNodes[1].innerText;
             let campus = e.target.parentElement.childNodes[3].innerText;
             await fetch('http://localhost:8080/api/modalCurso', {

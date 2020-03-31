@@ -23,7 +23,7 @@ class InfoBar extends React.Component {
       "/tabela/pesquisa-por-area": (<p> Os cursos estão agrupados por áreas comuns de estudo ou atuação. 
             Escolha um dos grupos que você tem interesse para ver todos os cursos relacionados
             a essa área. Após escolher um grupo, você pode escolher um 
-            curso e ver quais faculdades ofertam-no!</p>),
+            curso e ver qual faculdade oferta-o!</p>),
       "/tabela/ranking-campi-cursos": (<p>Nesta tabela, você pode ver os campi que ofertaram mais cursos
             em um período de anos. <br/> Escolha nos filtros o ano de início e do fim da sua pesquisa e
             você verá, em ordem crescente de número de cursos, os campi.</p>)
